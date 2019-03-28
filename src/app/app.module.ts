@@ -5,10 +5,11 @@ import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
+import { PremiumdecayComponent } from './premiumdecay/premiumdecay.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ChartsModule ],
-  declarations: [ AppComponent, HelloComponent ],
+  declarations: [ AppComponent, HelloComponent, PremiumdecayComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
