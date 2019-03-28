@@ -22,8 +22,8 @@ export class PremiumdecayComponent implements OnInit {
   ];
 
   public barChartColors: Color[] = [
-    { backgroundColor: 'red' },
-    { backgroundColor: 'green' },
+    { backgroundColor: '#3282B7' },
+    { backgroundColor: '#F9AF8C' },
   ]
 
   constructor() { }
