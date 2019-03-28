@@ -140,55 +140,21 @@
                                             </div>
                                             
 <!--graph-->
-<div style="display: block;">
-  <canvas baseChart 
-    [datasets]="barChartData"
-    [labels]="barChartLabels"
-    [options]="barChartOptions"
-    [plugins]="barChartPlugins"
-    [legend]="barChartLegend"
-    [chartType]="barChartType">
-  </canvas>
-</div>
-<div class="m-chart">
-    <canvas id="myChart"></canvas>
+<div>
+	<div>
+		<div style="display: block">
+			<canvas baseChart 
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [colors]="barChartColors"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+		</div>
+	
   </div>
-                                            <div id="contenitore">
-                                                <div class="left">
-                                                
-                                                <table>
-                                          
-                                                <tbody>
-                                                <tr><td>Day1</td><td>10%</td><td style="background-color:#ffffff">&nbsp;</td></tr>
-                                                <tr><td>Day2</td><td>68%</td><td style="background-color:#ddda0c">&nbsp;</td></tr>
-                                                <tr><td>Day3</td><td>30%</td><td style="background-color:#ffffff">&nbsp;</td></tr>
-                                                <tr><td>Day4</td><td>20%</td><td style="background-color:#ddda0c">&nbsp;</td></tr>
-                                                <tr><td>Day5</td><td>20%</td><td style="background-color:#ffffff">&nbsp;</td></tr>
-                                                <tr><td>Day6</td><td>20%</td><td style="background-color:#fffae7">&nbsp;</td></tr>
-                                                <tr><td>Day7</td><td>20%</td><td style="background-color:#ffffff">&nbsp;</td></tr>
-                                                </tbody></table>
-                                                <div class="button" onclick="ngOnIt()">Rerun</div>
-                                                </div>
-                                                <div class="left">
-                                                <div id="grafico">
-                                                <div class="riga" style="top:25%"><div>75%</div></div>
-                                                <div class="riga" style="top:50%"><div>50%</div></div>
-                                                <div class="riga" style="top:75%"><div>25%</div></div>
-                                                <div id="col0" style="left:0; background-color:#336699;" class="column"></div>
-                                                <div id="col1" style="left:14.2%; background-color:#003366;" class="column"></div>
-                                                <div id="col2" style="left:28.4%; background-color:#ff6600;" class="column"></div>
-                                                <div id="col3" style="left:42.6%; background-color:#ffcc00;" class="column"></div>
-                                                <div id="col4" style="left:56.8%; background-color:#e9e7de;" class="column"></div>
-                                                <div id="col5" style="left:70.8%; background-color:#2c2713;" class="column"></div>
-                                                <div id="col6" style="left:85%; background-color:#43107c;" class="column"></div>
-
-                                                </div>
-                                                </div>
-                                                <div class="canc"></div>
-                                                  </div>
-
-
-
+</div>
 
 
 
