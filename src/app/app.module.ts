@@ -10,10 +10,11 @@ import { PremiumdecayComponent } from './premiumdecay/premiumdecay.component';
 import { StockService } from './stock.service';
 import { OpeninterestComponent } from './openinterest/openinterest.component';
 import { ImpliedvolatalityComponent } from './impliedvolatality/impliedvolatality.component';
+import { PutcallratioComponent } from './putcallratio/putcallratio.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ChartsModule, HttpModule ],
-  declarations: [ AppComponent, HelloComponent, PremiumdecayComponent, OpeninterestComponent, ImpliedvolatalityComponent ],
+  declarations: [ AppComponent, HelloComponent, PremiumdecayComponent, OpeninterestComponent, ImpliedvolatalityComponent, PutcallratioComponent ],
   bootstrap:    [ AppComponent ],
   providers: [StockService]
 })
