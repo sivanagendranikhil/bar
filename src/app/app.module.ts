@@ -8,10 +8,11 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { PremiumdecayComponent } from './premiumdecay/premiumdecay.component';
 import { StockService } from './stock.service';
+import { OpeninterestComponent } from './openinterest/openinterest.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ChartsModule, HttpModule ],
-  declarations: [ AppComponent, HelloComponent, PremiumdecayComponent ],
+  declarations: [ AppComponent, HelloComponent, PremiumdecayComponent, OpeninterestComponent ],
   bootstrap:    [ AppComponent ],
   providers: [StockService]
 })
