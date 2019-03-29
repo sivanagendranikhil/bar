@@ -2,7 +2,7 @@
   import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
   import { Label, Color } from 'ng2-charts';
   import { StockService } from '../stock.service';
-  import { MyData } from './my-data';
+ import { MyData } from './my-data';
 @Component({
   selector: 'app-impliedvolatality',
   templateUrl: './impliedvolatality.component.html',
@@ -55,19 +55,19 @@ export class ImpliedvolatalityComponent implements OnInit {
       responsive: true,
     };
     public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
-    public barChartType: ChartType = 'bar';
+    public barChartType: ChartType = 'line';
     public barChartLegend = true;
 
     public barChartData: ChartDataSets[] = [
-      { data: this.resultCallArray, label: 'OI Call Values' },
-      { data: this.resultPutArray, label: 'OI Put Values' }
+      { data: this.resultCallArray, label: 'IV Call Values' },
+      { data: this.resultPutArray, label: 'IV Put Values' }
     ];
 
 
-    public barChartColors: Color[] = [
-      { backgroundColor: '#3282B7' },
-      { backgroundColor: '#F9AF8C' },
-    ]
+    // public barChartColors: Color[] = [
+    //   { backgroundColor: '#3282B7' },
+    //   { backgroundColor: '#F9AF8C' },
+    // ]
 
 
 
