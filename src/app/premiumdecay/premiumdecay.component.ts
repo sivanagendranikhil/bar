@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
 import { StockService } from '../stock.service';
-import { MyData } from './my-data'
+import { MyData } from './my-data';
 
 @Component({
   selector: 'app-premiumdecay',
