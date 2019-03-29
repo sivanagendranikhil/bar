@@ -57,7 +57,7 @@ export class PremiumdecayComponent implements OnInit {
     responsive: true,
   };
   public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
-  public barChartType: ChartType = 'bar';
+  public barChartType: ChartType = 'line';
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
@@ -66,9 +66,9 @@ export class PremiumdecayComponent implements OnInit {
   ];
 
 
-  public barChartColors: Color[] = [
-    { backgroundColor: '#3282B7' },
-    { backgroundColor: '#F9AF8C' },
-  ]
+  // public barChartColors: Color[] = [
+  //   { backgroundColor: '#3282B7' },
+  //   { backgroundColor: '#F9AF8C' },
+  // ]
   
 }
