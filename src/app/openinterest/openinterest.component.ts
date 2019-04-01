@@ -14,8 +14,8 @@ export class OpeninterestComponent implements OnInit {
    
     stocks: MyData[];
     message: string;
-    oiCallValue: number;
-    oiPutValue: number;
+    oiCallValue1: number;
+    oiPutValue1: number;
     resultCallArray:Array<number> = [];
     resultPutArray:Array<number> = [];
 
@@ -27,16 +27,16 @@ export class OpeninterestComponent implements OnInit {
         (stocks) => { 
           this.stocks = stocks 
           for(let res of this.stocks) {
-            this.oiCallValue = res.oi[0]
-            this.oiPutValue = res.oi[1]
-            this.resultCallArray.push(this.oiCallValue)
+            this.oiCallValue1 = res.oi[0]
+            this.oiPutValue1 = res.oi[1]
+            this.resultCallArray.push(this.oiCallValue1)
             this.resultCallArray.push(590000)
             this.resultCallArray.push(800000)
             this.resultCallArray.push(810000)
             this.resultCallArray.push(560000)
             this.resultCallArray.push(550000)
             this.resultCallArray.push(400000)
-            this.resultPutArray.push(this.oiPutValue)
+            this.resultPutArray.push(this.oiPutValue1)
             this.resultPutArray.push(690000)
             this.resultPutArray.push(700000)
             this.resultPutArray.push(610000)
