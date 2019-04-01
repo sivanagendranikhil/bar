@@ -55,7 +55,8 @@ export class VixComponent implements OnInit {
     public barChartLegend = true;
 
     public barChartData: ChartDataSets[] = [
-      { data: this.resultCallArray, label: 'Put-Call Ratio' },
+      { data: this.resultCallArray, label: 'VIX Parameter' },
+       
     
     ];
 
