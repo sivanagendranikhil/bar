@@ -14,10 +14,11 @@ import { PutcallratioComponent } from './putcallratio/putcallratio.component';
 import { VixComponent } from './vix/vix.component';
 import { AtthemoneyComponent } from './atthemoney/atthemoney.component';
 import { SupportresistanceComponent } from './supportresistance/supportresistance.component';
+import { DefaultComponent } from './default/default.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ChartsModule, HttpModule ],
-  declarations: [ AppComponent, HelloComponent, PremiumdecayComponent, OpeninterestComponent, ImpliedvolatalityComponent, PutcallratioComponent, VixComponent, AtthemoneyComponent, SupportresistanceComponent ],
+  declarations: [ AppComponent, HelloComponent, PremiumdecayComponent, OpeninterestComponent, ImpliedvolatalityComponent, PutcallratioComponent, VixComponent, AtthemoneyComponent, SupportresistanceComponent, DefaultComponent ],
   bootstrap:    [ AppComponent ],
   providers: [StockService]
 })

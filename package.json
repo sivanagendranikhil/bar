@@ -10,7 +10,7 @@
     "@angular/http": "7.2.11",
     "@angular/platform-browser": "7.2.11",
     "@angular/platform-browser-dynamic": "7.2.11",
-    "@angular/router": "7.2.11",
+    "@angular/router": "^7.2.11",
     "chart.js": "2.8.0",
     "core-js": "2.6.5",
     "ng2-charts": "2.2.0",
