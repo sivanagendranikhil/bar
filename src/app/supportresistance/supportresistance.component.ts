@@ -13,8 +13,8 @@ export class SupportresistanceComponent implements OnInit {
 
   stocks: MyData[];
   message: string;
-  oiCallValue: number;
-  oiPutValue: number;
+  rsCallSP: number;
+  rsPutSP: number;
   resultCallArray:Array<number> = [];
   resultPutArray:Array<number> = [];
 
@@ -26,22 +26,23 @@ export class SupportresistanceComponent implements OnInit {
       (stocks) => { 
         this.stocks = stocks 
         for(let res of this.stocks) {
-          this.oiCallValue = res.oi[0]
-          this.oiPutValue = res.oi[1]
-          this.resultCallArray.push(this.oiCallValue)
-          this.resultCallArray.push(590000)
-          this.resultCallArray.push(800000)
-          this.resultCallArray.push(810000)
-          this.resultCallArray.push(560000)
-          this.resultCallArray.push(550000)
-          this.resultCallArray.push(400000)
-          this.resultPutArray.push(this.oiPutValue)
-          this.resultPutArray.push(690000)
-          this.resultPutArray.push(700000)
-          this.resultPutArray.push(610000)
-          this.resultPutArray.push(860000)
-          this.resultPutArray.push(950000)
-          this.resultPutArray.push(800000)
+          this.rsCallSP = res.rs[0]
+          this.rsPutSP = res.rs[1]
+          console.log(res.r)
+          this.resultCallArray.push(this.rsCallSP)
+          this.resultCallArray.push(10000)
+          this.resultCallArray.push(11000)
+          this.resultCallArray.push(9000)
+          this.resultCallArray.push(11400)
+          this.resultCallArray.push(12000)
+          this.resultCallArray.push(10000)
+          this.resultPutArray.push(this.rsPutSP)
+          this.resultPutArray.push(9000)
+          this.resultPutArray.push(9500)
+          this.resultPutArray.push(8500)
+          this.resultPutArray.push(10000)
+          this.resultPutArray.push(9000)
+          this.resultPutArray.push(12000)
         }
       },
       (resp) => { 

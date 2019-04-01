@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
- import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
 import { StockService } from '../stock.service';
 import{MyData} from  './my-data';
@@ -13,10 +13,8 @@ import{MyData} from  './my-data';
 export class PutcallratioComponent implements OnInit {
     stocks: MyData[];
     message: string;
-    oiCallValue: number;
-    oiPutValue: number;
-    resultCallArray:Array<number> = [];
-    resultPutArray:Array<number> = [];
+    pcrValue1: number;
+    resultPcrArray:Array<number> = [];
 
     constructor(private stockService: StockService) { }
 
@@ -26,15 +24,14 @@ export class PutcallratioComponent implements OnInit {
         (stocks) => { 
           this.stocks = stocks 
           for(let res of this.stocks) {
-            this.oiCallValue = res.oi[0]
-            this.oiPutValue = res.oi[1]
-            this.resultCallArray.push(this.oiCallValue)
-            this.resultCallArray.push(590000)
-            this.resultCallArray.push(800000)
-            this.resultCallArray.push(810000)
-            this.resultCallArray.push(560000)
-            this.resultCallArray.push(550000)
-            this.resultCallArray.push(400000)
+            this.pcrValue1 = res.pcr
+            this.resultPcrArray.push(this.pcrValue1)
+            this.resultPcrArray.push(5)
+            this.resultPcrArray.push(8)
+            this.resultPcrArray.push(7)
+            this.resultPcrArray.push(5.1)
+            this.resultPcrArray.push(5.5)
+            this.resultPcrArray.push(4)
           
           }
         },
@@ -54,7 +51,7 @@ export class PutcallratioComponent implements OnInit {
     public barChartLegend = true;
 
     public barChartData: ChartDataSets[] = [
-      { data: this.resultCallArray, label: 'Put-Call Ratio' },
+      { data: this.resultPcrArray, label: 'Put-Call Ratio' },
     
     ];
 

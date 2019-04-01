@@ -13,7 +13,7 @@ export class StockService {
 
   getData(): Promise<MyData[]> {
     return this.http
-    .get('http://localhost:3333/ProjectBackend/StockAPI/getData')
+    .get('http://localhost:3333/ProjectBackend/StockAPI/getDataFromDB')
     .toPromise()
     .then(resp => resp.json() as MyData[])
     .catch(this.errorHandler);

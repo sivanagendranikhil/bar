@@ -11,7 +11,7 @@
   styleUrls: ['./openinterest.component.css']
 })
 export class OpeninterestComponent implements OnInit {
-
+   
     stocks: MyData[];
     message: string;
     oiCallValue: number;
