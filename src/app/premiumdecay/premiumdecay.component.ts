@@ -61,8 +61,8 @@ export class PremiumdecayComponent implements OnInit {
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: this.resultCallArray, label: 'OI Call Values' },
-    { data: this.resultPutArray, label: 'OI Put Values' }
+    { data: this.resultCallArray, label: 'Premium Decay Call Values' },
+    { data: this.resultPutArray, label: 'Premium Decay Put Values' }
   ];
 
 

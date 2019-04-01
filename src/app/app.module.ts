@@ -16,8 +16,10 @@ import { AtthemoneyComponent } from './atthemoney/atthemoney.component';
 import { SupportresistanceComponent } from './supportresistance/supportresistance.component';
 import { DefaultComponent } from './default/default.component';
 
+import { AppRoutingModule } from './approuting.module';
+
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, ChartsModule, HttpModule ],
+  imports:      [ BrowserModule, FormsModule, ChartsModule, HttpModule,AppRoutingModule],
   declarations: [ AppComponent, HelloComponent, PremiumdecayComponent, OpeninterestComponent, ImpliedvolatalityComponent, PutcallratioComponent, VixComponent, AtthemoneyComponent, SupportresistanceComponent, DefaultComponent ],
   bootstrap:    [ AppComponent ],
   providers: [StockService]
