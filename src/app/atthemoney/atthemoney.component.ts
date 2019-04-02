@@ -13,8 +13,8 @@ export class AtthemoneyComponent implements OnInit {
 
   stocks: MyData[];
   message: string;
-  atmCallValue1: number;
-  atmPutValue1: number;
+  atmCallValue: number;
+  atmPutValue: number;
   resultCallArray:Array<number> = [];
   resultPutArray:Array<number> = [];
 
@@ -26,23 +26,22 @@ export class AtthemoneyComponent implements OnInit {
       (stocks) => { 
         this.stocks = stocks 
         for(let res of this.stocks) {
-          this.atmCallValue1 = res.atm[0]
-          this.atmPutValue1 = res.atm[1]
-          this.resultCallArray.push(this.atmCallValue1)
-          this.resultCallArray.push(59)
-          this.resultCallArray.push(80)
+          this.atmCallValue = res.atm[0]
+          this.atmPutValue = res.atm[1]
+          this.resultCallArray.push(this.atmCallValue)         
+          this.resultPutArray.push(this.atmPutValue)
+        }
+        this.resultCallArray.push(80)
           this.resultCallArray.push(81)
           this.resultCallArray.push(56)
           this.resultCallArray.push(55)
           this.resultCallArray.push(40)
-          this.resultPutArray.push(this.atmPutValue1)
-          this.resultPutArray.push(69)
+          
           this.resultPutArray.push(70)
           this.resultPutArray.push(61)
           this.resultPutArray.push(86)
           this.resultPutArray.push(95)
           this.resultPutArray.push(80)
-        }
       },
       (resp) => { 
         this.message = resp.message;

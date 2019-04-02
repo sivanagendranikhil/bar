@@ -14,10 +14,8 @@ import{MyData} from  './my-data';
 export class VixComponent implements OnInit {
     stocks: MyData[];
     message: string;
-    oiCallValue: number;
-    oiPutValue: number;
+    vixValue: number;
     resultCallArray:Array<number> = [];
-    resultPutArray:Array<number> = [];
 
     constructor(private stockService: StockService) { }
 
@@ -27,17 +25,15 @@ export class VixComponent implements OnInit {
         (stocks) => { 
           this.stocks = stocks 
           for(let res of this.stocks) {
-            this.oiCallValue = res.oi[0]
-            this.oiPutValue = res.oi[1]
-            this.resultCallArray.push(this.oiCallValue)
-            this.resultCallArray.push(590000)
-            this.resultCallArray.push(800000)
-            this.resultCallArray.push(810000)
-            this.resultCallArray.push(560000)
-            this.resultCallArray.push(550000)
-            this.resultCallArray.push(400000)
-          
+            this.vixValue = res.vix[0]
+            this.resultCallArray.push(this.vixValue)         
           }
+          
+            this.resultCallArray.push(15)
+            this.resultCallArray.push(16)
+            this.resultCallArray.push(12)
+            this.resultCallArray.push(14)
+            this.resultCallArray.push(17)
         },
         (resp) => { 
           this.message = resp.message;

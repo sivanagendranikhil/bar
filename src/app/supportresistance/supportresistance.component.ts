@@ -28,22 +28,19 @@ export class SupportresistanceComponent implements OnInit {
         for(let res of this.stocks) {
           this.rsCallSP = res.rs[0]
           this.rsPutSP = res.rs[1]
-          console.log(res.rs[0])
           this.resultCallArray.push(this.rsCallSP)
-          this.resultCallArray.push(10000)
+          this.resultPutArray.push(this.rsPutSP)
+        }       
           this.resultCallArray.push(11000)
           this.resultCallArray.push(9000)
           this.resultCallArray.push(11400)
           this.resultCallArray.push(12000)
           this.resultCallArray.push(10000)
-          this.resultPutArray.push(this.rsPutSP)
-          this.resultPutArray.push(9000)
           this.resultPutArray.push(9500)
           this.resultPutArray.push(8500)
           this.resultPutArray.push(10000)
           this.resultPutArray.push(9000)
           this.resultPutArray.push(12000)
-        }
       },
       (resp) => { 
         this.message = resp.message;

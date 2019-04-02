@@ -13,7 +13,7 @@ import{MyData} from  './my-data';
 export class PutcallratioComponent implements OnInit {
     stocks: MyData[];
     message: string;
-    pcrValue1: number;
+    pcrValue: number;
     resultPcrArray:Array<number> = [];
 
     constructor(private stockService: StockService) { }
@@ -24,16 +24,15 @@ export class PutcallratioComponent implements OnInit {
         (stocks) => { 
           this.stocks = stocks 
           for(let res of this.stocks) {
-            this.pcrValue1 = res.pcr
-            this.resultPcrArray.push(this.pcrValue1)
-            this.resultPcrArray.push(5)
-            this.resultPcrArray.push(8)
-            this.resultPcrArray.push(7)
-            this.resultPcrArray.push(5.1)
-            this.resultPcrArray.push(5.5)
-            this.resultPcrArray.push(4)
-          
+            this.pcrValue = res.pcr[0]
+            this.resultPcrArray.push(this.pcrValue)
           }
+          
+            this.resultPcrArray.push(0.8)
+            this.resultPcrArray.push(0.7)
+            this.resultPcrArray.push(0.1)
+            this.resultPcrArray.push(0.5)
+            this.resultPcrArray.push(0.4)
         },
         (resp) => { 
           this.message = resp.message;

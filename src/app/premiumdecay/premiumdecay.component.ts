@@ -14,8 +14,8 @@ export class PremiumdecayComponent implements OnInit {
 
   stocks: MyData[];
   message: string;
-  oiCallValue: number;
-  oiPutValue: number;
+  pdCallValue: number;
+  pdPutValue: number;
   resultCallArray:Array<number> = [];
   resultPutArray:Array<number> = [];
 
@@ -27,23 +27,21 @@ export class PremiumdecayComponent implements OnInit {
       (stocks) => { 
         this.stocks = stocks 
         for(let res of this.stocks) {
-          this.oiCallValue = res.oi[0]
-          this.oiPutValue = res.oi[1]
-          this.resultCallArray.push(this.oiCallValue)
-          this.resultCallArray.push(590000)
-          this.resultCallArray.push(800000)
-          this.resultCallArray.push(810000)
-          this.resultCallArray.push(560000)
-          this.resultCallArray.push(550000)
-          this.resultCallArray.push(400000)
-          this.resultPutArray.push(this.oiPutValue)
-          this.resultPutArray.push(690000)
-          this.resultPutArray.push(700000)
-          this.resultPutArray.push(610000)
-          this.resultPutArray.push(860000)
-          this.resultPutArray.push(950000)
-          this.resultPutArray.push(800000)
-        }
+          this.pdCallValue = res.premiumDecay[0]
+          this.pdPutValue = res.premiumDecay[1]
+          this.resultCallArray.push(this.pdCallValue)
+          this.resultPutArray.push(this.pdPutValue)
+        }        
+          this.resultCallArray.push(80)
+          this.resultCallArray.push(81)
+          this.resultCallArray.push(56)
+          this.resultCallArray.push(55)
+          this.resultCallArray.push(40)
+          this.resultPutArray.push(70)
+          this.resultPutArray.push(61)
+          this.resultPutArray.push(86)
+          this.resultPutArray.push(95)
+          this.resultPutArray.push(80)
       },
       (resp) => { 
         this.message = resp.message;
