@@ -25,25 +25,13 @@ export class OpeninterestComponent implements OnInit {
       this.stockService.getData()
       .then(
         (stocks) => { 
-          this.stocks = stocks 
+          this.stocks = stocks
           for(let res of this.stocks) {
             this.oiCallValue1 = res.oi[0]
             this.oiPutValue1 = res.oi[1]
             this.resultCallArray.push(this.oiCallValue1)
-            this.resultCallArray.push(590000)
-            this.resultCallArray.push(800000)
-            this.resultCallArray.push(810000)
-            this.resultCallArray.push(560000)
-            this.resultCallArray.push(550000)
-            this.resultCallArray.push(400000)
-            this.resultPutArray.push(this.oiPutValue1)
-            this.resultPutArray.push(690000)
-            this.resultPutArray.push(700000)
-            this.resultPutArray.push(610000)
-            this.resultPutArray.push(860000)
-            this.resultPutArray.push(950000)
-            this.resultPutArray.push(800000)
-          }
+            this.resultPutArray.push(this.oiPutValue1)            
+          }          
         },
         (resp) => { 
           this.message = resp.message;
