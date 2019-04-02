@@ -31,16 +31,6 @@ export class SupportresistanceComponent implements OnInit {
           this.resultCallArray.push(this.rsCallSP)
           this.resultPutArray.push(this.rsPutSP)
         }       
-          this.resultCallArray.push(11000)
-          this.resultCallArray.push(9000)
-          this.resultCallArray.push(11400)
-          this.resultCallArray.push(12000)
-          this.resultCallArray.push(10000)
-          this.resultPutArray.push(9500)
-          this.resultPutArray.push(8500)
-          this.resultPutArray.push(10000)
-          this.resultPutArray.push(9000)
-          this.resultPutArray.push(12000)
       },
       (resp) => { 
         this.message = resp.message;

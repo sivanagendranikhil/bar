@@ -27,12 +27,6 @@ export class PutcallratioComponent implements OnInit {
             this.pcrValue = res.pcr[0]
             this.resultPcrArray.push(this.pcrValue)
           }
-          
-            this.resultPcrArray.push(0.8)
-            this.resultPcrArray.push(0.7)
-            this.resultPcrArray.push(0.1)
-            this.resultPcrArray.push(0.5)
-            this.resultPcrArray.push(0.4)
         },
         (resp) => { 
           this.message = resp.message;

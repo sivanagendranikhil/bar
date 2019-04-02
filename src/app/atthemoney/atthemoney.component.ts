@@ -31,17 +31,6 @@ export class AtthemoneyComponent implements OnInit {
           this.resultCallArray.push(this.atmCallValue)         
           this.resultPutArray.push(this.atmPutValue)
         }
-        this.resultCallArray.push(80)
-          this.resultCallArray.push(81)
-          this.resultCallArray.push(56)
-          this.resultCallArray.push(55)
-          this.resultCallArray.push(40)
-          
-          this.resultPutArray.push(70)
-          this.resultPutArray.push(61)
-          this.resultPutArray.push(86)
-          this.resultPutArray.push(95)
-          this.resultPutArray.push(80)
       },
       (resp) => { 
         this.message = resp.message;
