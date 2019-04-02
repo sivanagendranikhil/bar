@@ -5,6 +5,7 @@
   import { Label, Color } from 'ng2-charts';
   import { StockService } from '../stock.service';
   import { MyData } from './my-data';
+  import { OITodayData } from './today-data';
 @Component({
   selector: 'app-openinterest',
   templateUrl: './openinterest.component.html',
@@ -13,11 +14,18 @@
 export class OpeninterestComponent implements OnInit {
    
     stocks: MyData[];
+    oiData: OITodayData[];
     message: string;
     oiCallValue: number;
     oiPutValue: number;
+    strikePrice: number;
+    callOIChange: number;
+    putOIChange: number;
     resultCallArray:Array<number> = [];
     resultPutArray:Array<number> = [];
+    resultOIStrikePriceArray:Array<number> = [];
+    resultCallOIChangeArray:Array<number> = [];
+    resultPutOIChangeArray:Array<number> = [];
 
     constructor(private stockService: StockService) { }
 
@@ -38,7 +46,25 @@ export class OpeninterestComponent implements OnInit {
           console.log('Error!!!') 
         }
       );
-
+      this.stockService.getOIData()
+      .then(
+        (oiData) => {
+          this.oiData = oiData
+          for(let res of this.oiData) {
+            this.strikePrice = res.strikePrice
+            this.callOIChange = res.callOIChangeValue
+            this.putOIChange = res.putOIChangeValue
+            this.resultOIStrikePriceArray.push(this.strikePrice)
+            this.resultCallOIChangeArray.push(this.callOIChange)
+            this.resultPutOIChangeArray.push(this.putOIChange)
+          }
+          console.log(this.resultCallOIChangeArray)
+        },
+        (resp) => { 
+          this.message = resp.message;
+          console.log('Error!!!') 
+        }
+      );
     }
 
     public barChartOptions: ChartOptions = {
@@ -65,13 +91,13 @@ export class OpeninterestComponent implements OnInit {
      public barChartOptions1: ChartOptions = {
       responsive: true,
     };
-    public barChartLabels1: Label[] = ['Today'];
+    public barChartLabels1: number[] = this.resultOIStrikePriceArray;
     public barChartType1: ChartType = 'bar';
     public barChartLegend1= true;
 
     public barChartData1: ChartDataSets[] = [
-      { data: this.resultCallArray, label: 'OI Call Values' },
-      { data: this.resultPutArray, label: 'OI Put Values' }
+      { data: this.resultCallOIChangeArray, label: 'OI Call Values' },
+      { data: this.resultPutOIChangeArray, label: 'OI Put Values' }
     ];
 
 
