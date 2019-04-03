@@ -28,12 +28,6 @@ export class VixComponent implements OnInit {
             this.vixValue = res.vix[0]
             this.resultCallArray.push(this.vixValue)         
           }
-          
-            this.resultCallArray.push(15)
-            this.resultCallArray.push(16)
-            this.resultCallArray.push(12)
-            this.resultCallArray.push(14)
-            this.resultCallArray.push(17)
         },
         (resp) => { 
           this.message = resp.message;

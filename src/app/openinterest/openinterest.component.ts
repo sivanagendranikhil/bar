@@ -39,7 +39,8 @@ export class OpeninterestComponent implements OnInit {
             this.oiPutValue = res.oi[1]
             this.resultCallArray.push(this.oiCallValue)
             this.resultPutArray.push(this.oiPutValue)            
-          }          
+          }   
+               
         },
         (resp) => { 
           this.message = resp.message;
@@ -50,15 +51,14 @@ export class OpeninterestComponent implements OnInit {
       .then(
         (oiData) => {
           this.oiData = oiData
-          for(let res of this.oiData) {
-            this.strikePrice = res.strikePrice
-            this.callOIChange = res.callOIChangeValue
-            this.putOIChange = res.putOIChangeValue
+          for(let i=this.oiData.length-7; i<this.oiData.length; i++) {
+            this.strikePrice = this.oiData[i].strikePrice
+            this.callOIChange = this.oiData[i].callOIChangeValue
+            this.putOIChange = this.oiData[i].putOIChangeValue
             this.resultOIStrikePriceArray.push(this.strikePrice)
             this.resultCallOIChangeArray.push(this.callOIChange)
             this.resultPutOIChangeArray.push(this.putOIChange)
-          }
-          console.log(this.resultCallOIChangeArray)
+          }  
         },
         (resp) => { 
           this.message = resp.message;
