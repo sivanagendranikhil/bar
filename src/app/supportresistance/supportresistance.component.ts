@@ -15,6 +15,8 @@ export class SupportresistanceComponent implements OnInit {
   message: string;
   rsCallSP: number;
   rsPutSP: number;
+  todayResistance: number;
+  todaySupport: number;
   resultCallArray:Array<number> = [];
   resultPutArray:Array<number> = [];
 
@@ -30,7 +32,9 @@ export class SupportresistanceComponent implements OnInit {
           this.rsPutSP = res.rs[1]
           this.resultCallArray.push(this.rsCallSP)
           this.resultPutArray.push(this.rsPutSP)
-        }       
+        }     
+        this.todayResistance = this.stocks[this.stocks.length-1].rs[0]
+        this.todaySupport = this.stocks[this.stocks.length-1].rs[1]  
       },
       (resp) => { 
         this.message = resp.message;

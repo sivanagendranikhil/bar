@@ -15,6 +15,8 @@ export class AtthemoneyComponent implements OnInit {
   message: string;
   atmCallValue: number;
   atmPutValue: number;
+  todayCallATM: number;
+  todayPutATM: number;
   resultCallArray:Array<number> = [];
   resultPutArray:Array<number> = [];
 
@@ -31,6 +33,8 @@ export class AtthemoneyComponent implements OnInit {
           this.resultCallArray.push(this.atmCallValue)         
           this.resultPutArray.push(this.atmPutValue)
         }
+        this.todayCallATM = this.stocks[this.stocks.length-1].atm[0]
+        this.todayPutATM = this.stocks[this.stocks.length-1].atm[1]
       },
       (resp) => { 
         this.message = resp.message;

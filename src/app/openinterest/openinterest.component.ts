@@ -21,6 +21,8 @@ export class OpeninterestComponent implements OnInit {
     strikePrice: number;
     callOIChange: number;
     putOIChange: number;
+    todayCallOIChngATM: number;
+    todayPutOIChngATM: number;
     resultCallArray:Array<number> = [];
     resultPutArray:Array<number> = [];
     resultOIStrikePriceArray:Array<number> = [];
@@ -40,7 +42,8 @@ export class OpeninterestComponent implements OnInit {
             this.resultCallArray.push(this.oiCallValue)
             this.resultPutArray.push(this.oiPutValue)            
           }   
-               
+          this.todayCallOIChngATM = this.stocks[this.stocks.length-1].oi[0]
+          this.todayPutOIChngATM = this.stocks[this.stocks.length-1].oi[1] 
         },
         (resp) => { 
           this.message = resp.message;

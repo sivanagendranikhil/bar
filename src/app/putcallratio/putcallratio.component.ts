@@ -14,6 +14,7 @@ export class PutcallratioComponent implements OnInit {
     stocks: MyData[];
     message: string;
     pcrValue: number;
+    todayPCR: number;
     resultPcrArray:Array<number> = [];
 
     constructor(private stockService: StockService) { }
@@ -27,6 +28,7 @@ export class PutcallratioComponent implements OnInit {
             this.pcrValue = res.pcr[0]
             this.resultPcrArray.push(this.pcrValue)
           }
+          this.todayPCR = this.stocks[this.stocks.length-1].pcr[0]
         },
         (resp) => { 
           this.message = resp.message;

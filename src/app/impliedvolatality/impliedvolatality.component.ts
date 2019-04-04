@@ -14,6 +14,8 @@ export class ImpliedvolatalityComponent implements OnInit {
     message: string;
     oiCallValue: number;
     oiPutValue: number;
+    todayCallIV: number;
+    todayPutIV: number;
     resultCallArray:Array<number> = [];
     resultPutArray:Array<number> = [];
 
@@ -29,7 +31,9 @@ export class ImpliedvolatalityComponent implements OnInit {
             this.oiPutValue = res.iv[1]
             this.resultCallArray.push(this.oiCallValue)
             this.resultPutArray.push(this.oiPutValue)
-          }        
+          }       
+          this.todayCallIV = this.stocks[this.stocks.length-1].iv[0]
+          this.todayPutIV = this.stocks[this.stocks.length-1].iv[1] 
         },
         (resp) => { 
           this.message = resp.message;

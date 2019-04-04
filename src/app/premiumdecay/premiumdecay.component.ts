@@ -16,6 +16,8 @@ export class PremiumdecayComponent implements OnInit {
   message: string;
   pdCallValue: number;
   pdPutValue: number;
+  callDecayAvg: number;
+  putDecayAvg: number;
   resultCallArray:Array<number> = [];
   resultPutArray:Array<number> = [];
 
@@ -31,7 +33,9 @@ export class PremiumdecayComponent implements OnInit {
           this.pdPutValue = res.premiumDecay[1]
           this.resultCallArray.push(this.pdCallValue)
           this.resultPutArray.push(this.pdPutValue)
-        }        
+        } 
+        this.callDecayAvg = this.stocks[this.stocks.length-1].premiumDecay[0]
+        this.putDecayAvg = this.stocks[this.stocks.length-1].premiumDecay[1]       
       },
       (resp) => { 
         this.message = resp.message;

@@ -15,6 +15,7 @@ export class VixComponent implements OnInit {
     stocks: MyData[];
     message: string;
     vixValue: number;
+    todayVIX: number;
     resultCallArray:Array<number> = [];
 
     constructor(private stockService: StockService) { }
@@ -28,6 +29,7 @@ export class VixComponent implements OnInit {
             this.vixValue = res.vix[0]
             this.resultCallArray.push(this.vixValue)         
           }
+          this.todayVIX = this.stocks[this.stocks.length-1].vix[0]
         },
         (resp) => { 
           this.message = resp.message;
