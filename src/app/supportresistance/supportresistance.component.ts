@@ -52,8 +52,8 @@ export class SupportresistanceComponent implements OnInit {
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: this.resultCallArray, label: 'Support-Resistance Call Values' },
-    { data: this.resultPutArray, label: 'Support-Resistance Put Values' }
+    { data: this.resultCallArray, label: 'Resistance Values' },
+    { data: this.resultPutArray, label: 'Support Values' }
   ];
 
 
