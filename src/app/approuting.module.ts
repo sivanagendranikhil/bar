@@ -7,10 +7,20 @@ import {VixComponent} from './vix/vix.component'
 import {OpeninterestComponent} from './openinterest/openinterest.component'
 import {SupportresistanceComponent} from './supportresistance/supportresistance.component'
 import {PremiumdecayComponent} from './premiumdecay/premiumdecay.component'
+import{ DefaultComponent} from './default/default.component'
 
 
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/default',
+    pathMatch: 'full'
+  },
+  {
+    path:'default',
+    component: DefaultComponent,
+  },
 
   {
     path: 'atthemoney',
