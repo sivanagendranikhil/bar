@@ -23,6 +23,10 @@ export class OpeninterestComponent implements OnInit {
     putOIChange: number;
     todayCallOIChngATM: number;
     todayPutOIChngATM: number;
+    count1: number = 0;
+    count2: number = 0;
+    finalPredict: string;
+    todayPredict: string;
     resultCallArray:Array<number> = [];
     resultPutArray:Array<number> = [];
     resultOIStrikePriceArray:Array<number> = [];
@@ -40,10 +44,27 @@ export class OpeninterestComponent implements OnInit {
             this.oiCallValue = res.oi[0]
             this.oiPutValue = res.oi[1]
             this.resultCallArray.push(this.oiCallValue)
-            this.resultPutArray.push(this.oiPutValue)            
+            this.resultPutArray.push(this.oiPutValue)   
+            this.count1 = res.oi[2]
+            this.count2 = res.oi[3] 
           }   
           this.todayCallOIChngATM = this.stocks[this.stocks.length-1].oi[0]
           this.todayPutOIChngATM = this.stocks[this.stocks.length-1].oi[1] 
+          if(this.count1 > this.count2) {
+          this.finalPredict = "Bullish";
+          } else if(this.count1 < this.count2) {
+            this.finalPredict = "Bearish";
+          } else {
+            this.finalPredict = "Moving Sideways";
+          }
+
+        if(this.stocks[this.stocks.length-1].oi[2] > this.stocks[this.stocks.length-1].oi[3] && this.stocks[this.stocks.length-1].oi          [2] >= 2) {
+          this.todayPredict = "Bullish";
+        } else if(this.stocks[this.stocks.length-1].oi[2] < this.stocks[this.stocks.length-1].oi[3] && this.stocks[this.stocks.length-1].oi[3] >= 2) {
+          this.todayPredict = "Bearish";
+        } else {
+          this.todayPredict = "Moving Sideways";
+        }  
         },
         (resp) => { 
           this.message = resp.message;

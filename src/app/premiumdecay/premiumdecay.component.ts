@@ -18,6 +18,10 @@ export class PremiumdecayComponent implements OnInit {
   pdPutValue: number;
   callDecayAvg: number;
   putDecayAvg: number;
+  count1: number = 0;
+  count2: number = 0;
+  finalPredict: string;
+  todayPredict: string;
   resultCallArray:Array<number> = [];
   resultPutArray:Array<number> = [];
 
@@ -33,9 +37,28 @@ export class PremiumdecayComponent implements OnInit {
           this.pdPutValue = res.premiumDecay[1]
           this.resultCallArray.push(this.pdCallValue)
           this.resultPutArray.push(this.pdPutValue)
+          if(res.premiumDecay[2] == 1)
+            this.count1 = this.count1 + 1
+          if(res.premiumDecay[2] == -1)
+            this.count2 = this.count2 + 1   
         } 
         this.callDecayAvg = this.stocks[this.stocks.length-1].premiumDecay[0]
-        this.putDecayAvg = this.stocks[this.stocks.length-1].premiumDecay[1]       
+        this.putDecayAvg = this.stocks[this.stocks.length-1].premiumDecay[1] 
+        if(this.count1 > this.count2 && this.count1 > 2) {
+          this.finalPredict = "Bullish";
+          } else if(this.count1 < this.count2 && this.count2 > 2) {
+            this.finalPredict = "Bearish";
+          } else {
+            this.finalPredict = "Moving Sideways";
+          }
+
+        if(this.stocks[this.stocks.length-1].premiumDecay[2] == 1) {
+          this.todayPredict = "Bullish";
+        } else if(this.stocks[this.stocks.length-1].premiumDecay[2] == -1) {
+          this.todayPredict = "Bearish";
+        } else {
+          this.todayPredict = "Moving Sideways";
+        }     
       },
       (resp) => { 
         this.message = resp.message;

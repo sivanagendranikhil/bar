@@ -15,6 +15,10 @@ export class PutcallratioComponent implements OnInit {
     message: string;
     pcrValue: number;
     todayPCR: number;
+    count1: number = 0;
+    count2: number = 0;
+    finalPredict: string;
+    todayPredict: string;
     resultPcrArray:Array<number> = [];
 
     constructor(private stockService: StockService) { }
@@ -27,8 +31,26 @@ export class PutcallratioComponent implements OnInit {
           for(let res of this.stocks) {
             this.pcrValue = res.pcr[0]
             this.resultPcrArray.push(this.pcrValue)
+          if(res.pcr[1] == 1)
+            this.count1 = this.count1 + 1
+          if(res.pcr[1] == -1)
+            this.count2 = this.count2 + 1   
           }
           this.todayPCR = this.stocks[this.stocks.length-1].pcr[0]
+          if(this.count1 > this.count2 && this.count1 > 2) {
+          this.finalPredict = "Bullish";
+          } else if(this.count1 < this.count2 && this.count2 > 2) {
+            this.finalPredict = "Bearish";
+          } else {
+            this.finalPredict = "Moving Sideways";
+          }
+          if(this.stocks[this.stocks.length-1].pcr[1] == 1) {
+            this.todayPredict = "Bullish";
+          } else if(this.stocks[this.stocks.length-1].pcr[1] == -1) {
+            this.todayPredict = "Bearish";
+          } else {
+            this.todayPredict = "Moving Sideways";
+          }  
         },
         (resp) => { 
           this.message = resp.message;

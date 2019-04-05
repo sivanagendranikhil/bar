@@ -17,6 +17,10 @@ export class AtthemoneyComponent implements OnInit {
   atmPutValue: number;
   todayCallATM: number;
   todayPutATM: number;
+  finalPredict: string;
+  todayPredict: string;
+  count1: number = 0;
+  count2: number = 0;
   resultCallArray:Array<number> = [];
   resultPutArray:Array<number> = [];
 
@@ -31,10 +35,33 @@ export class AtthemoneyComponent implements OnInit {
           this.atmCallValue = res.atm[0]
           this.atmPutValue = res.atm[1]
           this.resultCallArray.push(this.atmCallValue)         
-          this.resultPutArray.push(this.atmPutValue)
+          this.resultPutArray.push(this.atmPutValue)       
+          console.log(res.atm[2])
+          console.log(res.atm[2] == 1) 
+          if(res.atm[2] == 1) {
+            this.count1 = this.count1 + 1
+          }
+          if(res.atm[2] == -1) {
+            this.count2 = this.count2 + 1 
+          }       
         }
         this.todayCallATM = this.stocks[this.stocks.length-1].atm[0]
         this.todayPutATM = this.stocks[this.stocks.length-1].atm[1]
+        if(this.count1 > this.count2 && this.count1 > 2) {
+          this.finalPredict = "Bullish";
+          } else if(this.count1 < this.count2 && this.count2 > 2) {
+            this.finalPredict = "Bearish";
+          } else {
+            this.finalPredict = "Moving Sideways";
+          }
+
+        if(this.stocks[this.stocks.length-1].atm[2] == 1) {
+          this.todayPredict = "Bullish";
+        } else if(this.stocks[this.stocks.length-1].atm[2] == -1) {
+          this.todayPredict = "Bearish";
+        } else {
+          this.todayPredict = "Moving Sideways";
+        }
       },
       (resp) => { 
         this.message = resp.message;
