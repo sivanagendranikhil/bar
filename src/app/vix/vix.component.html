@@ -108,11 +108,12 @@
 <div>
 	<div>
 		<div style="display: block">
-			<canvas baseChart 
+			<canvas baseChart height="50" width="180" 
         [datasets]="barChartData"
         [labels]="barChartLabels"
         [options]="barChartOptions"
         [colors]="barChartColors"
+        [plugins]="barChartPlugins"
         [legend]="barChartLegend"
         [chartType]="barChartType">
       </canvas>

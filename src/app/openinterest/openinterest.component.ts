@@ -95,6 +95,12 @@ export class OpeninterestComponent implements OnInit {
     
     public barChartOptions: ChartOptions = {
       responsive: true,
+      plugins: {
+        datalabels: {
+          anchor: 'end',
+          align: 'end',
+        }
+      }
     };
     public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
     public barChartType: ChartType = 'bar';
@@ -117,7 +123,7 @@ export class OpeninterestComponent implements OnInit {
 
      public barChartOptions1: ChartOptions = {
       responsive: true,
-       plugins: {
+      plugins: {
         datalabels: {
           anchor: 'end',
           align: 'end',

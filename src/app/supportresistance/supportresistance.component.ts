@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+  import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label, Color } from 'ng2-charts';
 import { StockService } from '../stock.service';
 import { MyData } from './my-data';
@@ -46,6 +47,12 @@ export class SupportresistanceComponent implements OnInit {
 
   public barChartOptions: ChartOptions = {
     responsive: true,
+    plugins: {
+        datalabels: {
+          anchor: 'end',
+          align: 'end',
+        }
+      }
   };
   public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
   public barChartType: ChartType = 'line';
@@ -56,6 +63,7 @@ export class SupportresistanceComponent implements OnInit {
     { data: this.resultPutArray, fill: false, label: 'Support Values' }
   ];
 
+  public barChartPlugins = [pluginDataLabels];
 
   public barChartColors: Color[] = [
     {

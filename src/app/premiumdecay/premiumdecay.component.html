@@ -116,18 +116,6 @@
                                         </div>
                         <!-- start car dealer-->
 
-
-
-
-
-
-
-
-
-
-
-                        
-              
                         <div class="row">
                             <div class="col-sm-12 col-xxl-3 mb-30">
                                 <div class="card card-statistic car-dealer-contants h-100 mb-0 o-hidden">
@@ -160,11 +148,12 @@
 <div>
 	<div>
 		<div style="display: block">
-			<canvas baseChart 
+			<canvas baseChart height="50" width="180" 
         [datasets]="barChartData"
         [labels]="barChartLabels"
         [options]="barChartOptions"
         [colors]="barChartColors"
+        [plugins]="barChartPlugins"
         [legend]="barChartLegend"
         [chartType]="barChartType">
       </canvas>
@@ -173,16 +162,8 @@
   </div>
 </div>
 
-
-
-
-                                                  
-
-
 <!--graph-->
-
-                     
-                                          
+                                  
                                     </div>
                                 </div>
                             </div>
