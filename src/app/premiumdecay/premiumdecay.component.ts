@@ -76,14 +76,19 @@ export class PremiumdecayComponent implements OnInit {
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: this.resultCallArray, label: 'Premium Decay Call Values' },
-    { data: this.resultPutArray, label: 'Premium Decay Put Values' }
+    { data: this.resultCallArray, fill: false, label: 'Premium Decay Call Values' },
+    { data: this.resultPutArray, fill: false, label: 'Premium Decay Put Values' }
   ];
 
-
-  // public barChartColors: Color[] = [
-  //   { backgroundColor: '#3282B7' },
-  //   { backgroundColor: '#F9AF8C' },
-  // ]
+  public barChartColors: Color[] = [
+    {
+      borderColor: 'red',
+      pointBorderColor: '#ffffff'
+    },
+    { 
+      borderColor: 'green',
+      pointBorderColor: '#fff'
+    }
+  ]
   
 }

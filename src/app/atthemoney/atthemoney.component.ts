@@ -79,14 +79,20 @@ export class AtthemoneyComponent implements OnInit {
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: this.resultCallArray, label: 'ATM Call Values' },
-    { data: this.resultPutArray, label: 'ATM Put Values' }
+    { data: this.resultCallArray, fill: false, label: 'ATM Call Values' },
+    { data: this.resultPutArray, fill: false, label: 'ATM Put Values' }
   ];
 
 
-  // public barChartColors: Color[] = [
-  //   { backgroundColor: '#3282B7' },
-  //   { backgroundColor: '#F9AF8C' },
-  // ]
+  public barChartColors: Color[] = [
+    {
+      borderColor: 'red',
+      pointBorderColor: '#ffffff'
+    },
+    { 
+      borderColor: 'green',
+      pointBorderColor: '#fff'
+    }
+  ]
   
 }

@@ -68,7 +68,7 @@ export class PutcallratioComponent implements OnInit {
     public barChartLegend = true;
 
     public barChartData: ChartDataSets[] = [
-      { data: this.resultPcrArray, label: 'Put-Call Ratio' },
+      { data: this.resultPcrArray, fill: false, label: 'Put-Call Ratio' },
     
     ];
 

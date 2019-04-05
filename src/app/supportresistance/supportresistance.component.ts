@@ -52,14 +52,20 @@ export class SupportresistanceComponent implements OnInit {
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: this.resultCallArray, label: 'Resistance Values' },
-    { data: this.resultPutArray, label: 'Support Values' }
+    { data: this.resultCallArray, fill: false, label: 'Resistance Values' },
+    { data: this.resultPutArray, fill: false, label: 'Support Values' }
   ];
 
 
-  // public barChartColors: Color[] = [
-  //   { backgroundColor: '#3282B7' },
-  //   { backgroundColor: '#F9AF8C' },
-  // ]
+  public barChartColors: Color[] = [
+    {
+      borderColor: 'red',
+      pointBorderColor: '#ffffff'
+    },
+    { 
+      borderColor: 'green',
+      pointBorderColor: '#fff'
+    }
+  ]
   
 }

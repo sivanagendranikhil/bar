@@ -70,21 +70,21 @@ export class VixComponent implements OnInit {
     public barChartLegend = true;
 
     public barChartData: ChartDataSets[] = [
-      { data: this.resultCallArray, label: 'VIX Parameter' },
+      { data: this.resultCallArray, fill: false, label: 'VIX Parameter'},
        
     
     ];
 
 
-    // public barChartColors: Color[] = [
-    //   { backgroundColor: '#3282B7' },
-    //   { backgroundColor: '#F9AF8C' },
-    // ]
-
-
-
-
-
-
-    
+    public barChartColors: Color[] = [
+    {
+      borderColor: 'red',
+      pointBorderColor: '#ffffff'
+    },
+    { 
+      borderColor: 'green',
+      pointBorderColor: '#fff'
+    }
+  ]
+   
   }

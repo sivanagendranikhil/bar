@@ -51,15 +51,21 @@ export class ImpliedvolatalityComponent implements OnInit {
     public barChartLegend = true;
 
     public barChartData: ChartDataSets[] = [
-      { data: this.resultCallArray, label: 'IV Call Values' },
-      { data: this.resultPutArray, label: 'IV Put Values' }
+      { data: this.resultCallArray, fill: false, label: 'IV Call Values' },
+      { data: this.resultPutArray, fill: false, label: 'IV Put Values' }
     ];
 
 
-    // public barChartColors: Color[] = [
-    //   { backgroundColor: '#3282B7' },
-    //   { backgroundColor: '#F9AF8C' },
-    // ]
+    public barChartColors: Color[] = [
+    {
+      borderColor: 'red',
+      pointBorderColor: '#ffffff'
+    },
+    { 
+      borderColor: 'green',
+      pointBorderColor: '#fff'
+    }
+  ]
 
 
 

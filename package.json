@@ -10,12 +10,13 @@
     "@angular/http": "7.2.11",
     "@angular/platform-browser": "7.2.11",
     "@angular/platform-browser-dynamic": "7.2.11",
-    "@angular/router": "^7.2.11",
+    "@angular/router": "7.2.11",
     "chart.js": "2.8.0",
+    "chartjs-plugin-datalabels": "^0.6.0",
     "core-js": "2.6.5",
     "ng2-charts": "2.2.0",
     "rxjs": "6.4.0",
-    "rxjs-compat": "^6.4.0",
+    "rxjs-compat": "6.4.0",
     "zone.js": "0.8.29"
   },
   "scripts": {
