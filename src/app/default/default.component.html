@@ -42,25 +42,31 @@
                                     <div class="ml-auto d-flex align-items-center">
                                         <nav>
                                             <ol class="breadcrumb p-0 m-b-0">
-                                                <li class="breadcrumb-item">
+                                                <li >
                                                     <a href="index.html"><i class="ti ti-home"></i></a>
                                                 </li>
-                                                <li class="breadcrumb-item">
+                                                <li >
                                                    Parameters
                                                 </li>
-                                                <li class="breadcrumb-item active text-primary" aria-current="page">>>IV</li>
+                                                <li class="breadcrumb-item active text-primary" aria-current="page">>>Today Prediction</li>
                                             </ol>
                                         </nav>
                                     </div>
                                 </div>
                                 <!-- end page title -->
+                                 <div class="text-xxs-center"> 
+                           <h2 style="color: green"> 
+                             <br>
+                            Based on Some Parameters Today Market Prediction is "{{finalPrediction}}"
+                          </h2>
+                                 </div>
                             </div>
                         </div>
                         <!-- end row -->
                         <!-- start car dealer-->
-{{callPrediction}}
-{{putPrediction}}
-{{finalPrediction}}
+
+
+
                         <div class="row">
                             <div class="col-sm-12 col-xxl-3 mb-30">
                                 <div class="card card-statistic car-dealer-contants h-100 mb-0 o-hidden">
@@ -68,7 +74,7 @@
                                         <div class="bg-gradient">
                                             <div class="card-header border-0 d-flex justify-content-between mb-3">
                                                 <div class="card-heading">
-                                                    <h4 class="card-title text-white">Weekly Data</h4>
+                                                    <h4 class="card-title text-white">Today Data</h4>
                                                 </div>
                                                 
                                             </div>
@@ -78,47 +84,27 @@
                                                   <div id="cardealerdemo1" class="chart-fit"></div>
                                               </div>
                                           </div>
-  <!--graph-->
-<div>
-	<div>
-		<div style="display: block">
-			<canvas baseChart 
-        [datasets]="barChartData"
-        [labels]="barChartLabels"
-        [options]="barChartOptions"
-        [colors]="barChartColors"
-        [legend]="barChartLegend"
-        [chartType]="barChartType">
-      </canvas>
-		</div>
-	
-  </div>
-</div>
- <!--graph-->
+
 
                      
                                           <div class="row no-gutters">
                                               <div class="col-xxs-6">
                                                   <div class="media align-items-center p-4 border-sm-right border-bottom">
-                                                    <div class="mr-4">
-                                                        <i class="fe fe-user-check text-primary font-30"></i>
-                                                    </div>
+                                                   
                                                     
                                                     <div class="media-body">
-                                                        <strong class="text-dark">Highest IV</strong>
-                                                        <h3 class="font-light text-muted mb-0">528+</h3>
+                                                        <strong class="text-dark">Calls Prediction</strong>
+                                                        <h3 class="font-light text-muted mb-0">{{callPrediction}}</h3>
                                                     </div>
                                                 </div>
                                                
                                             </div>
                                             <div class="col-xxs-6">
                                                 <div class="media align-items-center p-4 border-bottom">
-                                                    <div class="mr-4">
-                                                        <i class="fe fe-eye text-primary font-30"></i>
-                                                    </div>
+                                                   
                                                     <div class="media-body">
-                                                        <strong class="text-dark">Lowest IV</strong>
-                                                        <h3 class="font-light text-muted mb-0">156+</h3>
+                                                        <strong class="text-dark">Puts Prediction</strong>
+                                                        <h3 class="font-light text-muted mb-0">{{putPrediction}}</h3>
                                                     </div>
                                                 </div>
                                             
@@ -131,32 +117,19 @@
                                 <div class="card card-statistic car-dealer-contants h-100 mb-0">
                                     <div class="card-header d-flex justify-content-between">
                                         <div class="card-heading">
-                                            <h4 class="card-title">Sale Analysis Trend</h4>
+                                            <h4 class="card-title">Strike Price </h4>
                                         </div>
-                                        <div class="dropdown">
-                                            <a class="p-2" href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fe fe-more-horizontal"></i>
-                                            </a>
-                                            <div class="dropdown-menu custom-dropdown dropdown-menu-right p-4">
-                                                <h6 class="mb-1">Action</h6>
-                                                <a class="dropdown-item" href="#!"><i class="fa-fw fa fa-file-o pr-2"></i>View reports</a>
-                                                <a class="dropdown-item" href="#!"><i class="fa-fw fa fa-edit pr-2"></i>Edit reports</a>
-                                                <a class="dropdown-item" href="#!"><i class="fa-fw fa fa-bar-chart-o pr-2"></i>Statistics</a>
-                                                <h6 class="mb-1 mt-3">Export</h6>
-                                                <a class="dropdown-item" href="#!"><i class="fa-fw fa fa-file-pdf-o pr-2"></i>Export to PDF</a>
-                                                <a class="dropdown-item" href="#!"><i class="fa-fw fa fa-file-excel-o pr-2"></i>Export to CSV</a>
-                                            </div>
-                                        </div>
+                                     
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-xxs-6 col-xl-4">
+                                            <!-- <div class="col-xxs-6 col-xl-4">
                                                 <h5>Number of Sale</h5>
                                                 <h2 class="font-40 font-light text-muted mb-0">2,431</h2>
-                                            </div>
+                                            </div> -->
                                             <div class="col-xxs-6 col-xl-4">
-                                                <h5 class="text-primary">Amount of Sale</h5>
-                                                <h2 class="font-40 font-light text-primary mb-0">3,546</h2>
+                                                <!-- <h5 class="text-primary">Amount of Sale</h5> -->
+                                                <h2 class="font-40 font-light text-primary mb-0">{{strikePrice}}</h2>
                                             </div>
                                         </div>
                                         <div class="apechart-wrapper">
@@ -176,8 +149,8 @@
                                             <div class="col-lg-6 col-xl-3 p-20 border-bottom border-xl-bottom-0 border-lg-right">
                                                 <div class="row align-items-center">
                                                     <div class="col-xxs-6">
-                                                        <h4>Billing Statement</h4>
-                                                        <p>Consectetur ipsum dolor sit amet, adipisicing.</p>
+                                                        <h4>Put-Call Ratio</h4>
+                                                      
                                                     </div>
                                                     <div class="col-xxs-6 ml-auto mt-3 mt-sm-0 mb-0 text-xxs-center">
                                                         <span class="d-block text-primary font-30">56</span>
@@ -188,8 +161,8 @@
                                             <div class="col-lg-6 col-xl-3 p-20 border-bottom border-xl-bottom-0 border-xl-right">
                                                 <div class="row align-items-center">
                                                     <div class="col-xxs-6">
-                                                        <h4>Car Use</h4>
-                                                        <p>Consectetur ipsum dolor sit amet, adipisicing.</p>
+                                                        <h4>Implied Volatality</h4>
+                                                       
                                                     </div>
                                                     <div class="col-xxs-6 ml-auto mt-3 mt-sm-0 mb-0 text-xxs-center">
                                                         <span class="d-block text-primary font-30">353</span>
@@ -200,8 +173,8 @@
                                             <div class="col-lg-6 col-xl-3 p-20 border-bottom border-lg-bottom-0 border-lg-right">
                                                 <div class="row align-items-center">
                                                     <div class="col-xxs-6">
-                                                        <h4>Receivable Data</h4>
-                                                        <p>Consectetur ipsum dolor sit amet, adipisicing.</p>
+                                                        <h4>Open Interest</h4>
+                                                        
                                                     </div>
                                                     <div class="col-xxs-6 ml-auto mt-3 mt-sm-0 mb-0 text-xxs-center">
                                                         <span class="d-block text-primary font-30">98%</span>
@@ -212,8 +185,8 @@
                                             <div class="col-lg-6 col-xl-3 p-20">
                                                 <div class="row align-items-center">
                                                     <div class="col-xxs-6">
-                                                        <h4>Recap the Car</h4>
-                                                        <p>Consectetur ipsum dolor sit amet, adipisicing.</p>
+                                                        <h4>LT</h4>
+                                        
                                                     </div>
                                                     <div class="col-xxs-6 ml-auto mt-3 mt-sm-0 text-xxs-center">
                                                         <span class="d-block text-primary font-30">155</span>
