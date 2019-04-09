@@ -50,7 +50,7 @@ export class SupportresistanceComponent implements OnInit {
     plugins: {
         datalabels: {
           anchor: 'end',
-          align: 'end',
+          align: 'end'
         }
       }
   };
@@ -59,8 +59,14 @@ export class SupportresistanceComponent implements OnInit {
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: this.resultCallArray, fill: false, label: 'Resistance Values' },
-    { data: this.resultPutArray, fill: false, label: 'Support Values' }
+    { data: this.resultCallArray, fill: false, label: 'Resistance Values', datalabels: {
+          anchor: 'start',
+          align: 'start'
+        } },
+    { data: this.resultPutArray, fill: false, label: 'Support Values', datalabels: {
+          anchor: 'end',
+          align: 'end'
+        }}
   ];
 
   public barChartPlugins = [pluginDataLabels];
