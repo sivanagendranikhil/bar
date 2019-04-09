@@ -40,7 +40,7 @@ export class PutcallratioComponent implements OnInit {
           this.todayPCR = this.stocks[this.stocks.length-1].pcr[0]
           if(this.count1 > this.count2 && this.count1 > 3) {
           this.finalPredict = "Bullish";
-          } else if(this.count1 < this.count2 && this.count2 > ) {
+          } else if(this.count1 < this.count2 && this.count2 > 3) {
             this.finalPredict = "Bearish";
           } else {
             this.finalPredict = "Moving Sideways";
