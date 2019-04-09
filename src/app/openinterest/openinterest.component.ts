@@ -41,14 +41,14 @@ export class OpeninterestComponent implements OnInit {
       .then(
         (stocks) => { 
           this.stocks = stocks 
-          for(let res of this.stocks) {
-            this.oiCallValue = res.oi[0]
-            this.oiPutValue = res.oi[1]
+          for(let i = this.stocks.length-7; i < this.stocks.length; i++) {
+            this.oiCallValue = this.stocks[i].oi[0]
+            this.oiPutValue = this.stocks[i].oi[1]
             this.resultCallArray.push(this.oiCallValue)
             this.resultPutArray.push(this.oiPutValue)   
-            this.count1 = res.oi[2]
-            this.count2 = res.oi[3] 
-          }   
+            this.count1 = this.stocks[i].oi[2]
+            this.count2 = this.stocks[i].oi[3] 
+          }
           this.todayCallOIChngATM = this.stocks[this.stocks.length-1].oi[0]
           this.todayPutOIChngATM = this.stocks[this.stocks.length-1].oi[1] 
           if(this.count1 > this.count2) {
@@ -59,7 +59,7 @@ export class OpeninterestComponent implements OnInit {
             this.finalPredict = "Moving Sideways";
           }
 
-        if(this.stocks[this.stocks.length-1].oi[2] > this.stocks[this.stocks.length-1].oi[3] && this.stocks[this.stocks.length-1].oi          [2] >= 2) {
+        if(this.stocks[this.stocks.length-1].oi[2]>this.stocks[this.stocks.length-1].oi[3]&&this.stocks[this.stocks.length-1].oi[2] >= 2) {
           this.todayPredict = "Bullish";
         } else if(this.stocks[this.stocks.length-1].oi[2] < this.stocks[this.stocks.length-1].oi[3] && this.stocks[this.stocks.length-1].oi[3] >= 2) {
           this.todayPredict = "Bearish";
