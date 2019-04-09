@@ -20,6 +20,8 @@ export class DefaultComponent implements OnInit {
   oiTodayPredict: string;
   pdTodayPredict: string;
   pcrTodayPredict: string;
+  show1:boolean=false;
+   show2:boolean=false;
 
   constructor(private stockService: StockService) { }
 
@@ -103,5 +105,12 @@ export class DefaultComponent implements OnInit {
       }
     );
   }
-
+showcall() {
+        this.show1 = this.show1 ? false : true;
+        this.show2=false;
+}
+showput() {
+  this.show1 = false;
+        this.show2 = this.show2 ? false : true;
+}
 }

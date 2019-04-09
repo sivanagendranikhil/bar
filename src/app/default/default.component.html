@@ -197,6 +197,7 @@
                                     </div>
                                 </div>
                             </div>
+                           
                              <div class="col-12 mt-3">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -206,7 +207,7 @@
                                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 
-                                                    <button (click)="select(i)" class="btn btn-primary text-uppercase">call side chart</button>
+                                                    <button (click)="showcall()" class="btn btn-primary text-uppercase">call side chart</button>
                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -221,7 +222,15 @@
                                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                     <button (click)="select(i)" class="btn btn-primary text-uppercase">Put side chart</button>
+                                                     <button (click)="showput()" class="btn btn-primary text-uppercase">Put side chart</button>
+                                                     
+                                                </div>
+                                               
+                                                <div *ngIf="show1">
+                                                  helo1
+                                                </div>
+                                                  <div *ngIf="show2">
+                                                  helo2
                                                 </div>
                         </div>
     
