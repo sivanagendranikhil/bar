@@ -45,9 +45,9 @@ export class PremiumdecayComponent implements OnInit {
         } 
         this.callDecayAvg = this.stocks[this.stocks.length-1].premiumDecay[0]
         this.putDecayAvg = this.stocks[this.stocks.length-1].premiumDecay[1] 
-        if(this.count1 > this.count2 && this.count1 > 2) {
+        if(this.count1 > this.count2 && this.count1 > 3) {
           this.finalPredict = "Bullish";
-          } else if(this.count1 < this.count2 && this.count2 > 2) {
+          } else if(this.count1 < this.count2 && this.count2 > 3) {
             this.finalPredict = "Bearish";
           } else {
             this.finalPredict = "Moving Sideways";

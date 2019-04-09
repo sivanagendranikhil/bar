@@ -32,25 +32,23 @@ export class AtthemoneyComponent implements OnInit {
     .then(
       (stocks) => { 
         this.stocks = stocks 
-        for(let res of this.stocks) {
-          this.atmCallValue = res.atm[0]
-          this.atmPutValue = res.atm[1]
+        for(let i = this.stocks.length-7; i < this.stocks.length; i++) {
+          this.atmCallValue = this.stocks[i].atm[0]
+          this.atmPutValue = this.stocks[i].atm[1]
           this.resultCallArray.push(this.atmCallValue)         
-          this.resultPutArray.push(this.atmPutValue)       
-          console.log(res.atm[2])
-          console.log(res.atm[2] == 1) 
-          if(res.atm[2] == 1) {
+          this.resultPutArray.push(this.atmPutValue)    
+          if(this.stocks[i].atm[2] == 1) {
             this.count1 = this.count1 + 1
           }
-          if(res.atm[2] == -1) {
+          if(this.stocks[i].atm[2] == -1) {
             this.count2 = this.count2 + 1 
           }       
         }
         this.todayCallATM = this.stocks[this.stocks.length-1].atm[0]
         this.todayPutATM = this.stocks[this.stocks.length-1].atm[1]
-        if(this.count1 > this.count2 && this.count1 > 2) {
+        if(this.count1 > this.count2 && this.count1 > 3) {
           this.finalPredict = "Bullish";
-          } else if(this.count1 < this.count2 && this.count2 > 2) {
+          } else if(this.count1 < this.count2 && this.count2 > 3) {
             this.finalPredict = "Bearish";
           } else {
             this.finalPredict = "Moving Sideways";
