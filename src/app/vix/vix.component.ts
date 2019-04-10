@@ -30,12 +30,12 @@ export class VixComponent implements OnInit {
       .then(
         (stocks) => { 
           this.stocks = stocks 
-          for(let res of this.stocks) {
-            this.vixValue = res.vix[0]
+          for(let i = this.stocks.length-7; i < this.stocks.length; i++) {
+            this.vixValue = this.stocks[i].vix[0]
             this.resultCallArray.push(this.vixValue)     
-          if(res.vix[1] == 1)
+          if(this.stocks[i].vix[1] == 1)
             this.count1 = this.count1 + 1
-          if(res.vix[1] == -1)
+          if(this.stocks[i].vix[1] == -1)
             this.count2 = this.count2 + 1       
           }
           this.todayVIX = this.stocks[this.stocks.length-1].vix[0]
