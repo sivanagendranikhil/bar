@@ -14,34 +14,34 @@ export class StockService {
 
   getData(): Promise<MyData[]> {
     return this.http
-    .get('http://localhost:3333/ProjectBackend/StockAPI/getDataFromDB')
-    .toPromise()
-    .then(resp => resp.json() as MyData[])
-    .catch(this.errorHandler);
+      .get('http://localhost:3333/ProjectBackend/StockAPI/getDataFromDB')
+      .toPromise()
+      .then(resp => resp.json() as MyData[])
+      .catch(this.errorHandler);
   }
 
   getOIData(): Promise<OITodayData[]> {
     return this.http
-    .get('http://localhost:3333/ProjectBackend/StockAPI/getOIDataFromDB')
-    .toPromise()
-    .then(resp => resp.json() as OITodayData[])
-    .catch(this.errorHandler);
+      .get('http://localhost:3333/ProjectBackend/StockAPI/getOIDataFromDB')
+      .toPromise()
+      .then(resp => resp.json() as OITodayData[])
+      .catch(this.errorHandler);
   }
 
   getFinalPrediction(): Promise<Number[]> {
-     return this.http
-    .get('http://localhost:3333/ProjectBackend/StockAPI/getFinalPrediction')
-    .toPromise()
-    .then(resp => resp.json() as Number[])
-    .catch(this.errorHandler);
+    return this.http
+      .get('http://localhost:3333/ProjectBackend/StockAPI/getFinalPrediction')
+      .toPromise()
+      .then(resp => resp.json() as Number[])
+      .catch(this.errorHandler);
   }
 
   getFinalPredictionFromWeb(): Promise<Number[]> {
-     return this.http
-    .get('http://localhost:3333/ProjectBackend/StockAPI/getFinalPredictionFromWeb')
-    .toPromise()
-    .then(resp => resp.json() as Number[])
-    .catch(this.errorHandler);
+    return this.http
+      .get('http://localhost:3333/ProjectBackend/StockAPI/getFinalPredictionFromWeb')
+      .toPromise()
+      .then(resp => resp.json() as Number[])
+      .catch(this.errorHandler);
   }
 
   private errorHandler(error:any): Promise<any> {
