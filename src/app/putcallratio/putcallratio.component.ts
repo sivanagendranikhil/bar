@@ -65,8 +65,9 @@ export class PutcallratioComponent implements OnInit {
       responsive: true,
        plugins: {
         datalabels: {
-          anchor: 'end',
-          align: 'end',
+          anchor: 'start',
+          align: 'start',
+        
         }
       }
     };
