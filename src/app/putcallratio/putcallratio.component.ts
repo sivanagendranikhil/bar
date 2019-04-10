@@ -29,13 +29,13 @@ export class PutcallratioComponent implements OnInit {
       .then(
         (stocks) => { 
           this.stocks = stocks 
-          for(let res of this.stocks) {
-            this.pcrValue = res.pcr[0]
+          for(let i = this.stocks.length-7; i < this.stocks.length; i++) {
+            this.pcrValue = this.stocks[i].pcr[0]
             this.resultPcrArray.push(this.pcrValue)
-          if(res.pcr[1] == 1)
-            this.count1 = this.count1 + 1
-          if(res.pcr[1] == -1)
-            this.count2 = this.count2 + 1   
+            if(this.stocks[i].pcr[1] == 1)
+              this.count1 = this.count1 + 1
+            if(this.stocks[i].pcr[1] == -1)
+              this.count2 = this.count2 + 1   
           }
           this.todayPCR = this.stocks[this.stocks.length-1].pcr[0]
           if(this.count1 > this.count2 && this.count1 > 3) {

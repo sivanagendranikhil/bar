@@ -28,9 +28,9 @@ export class SupportresistanceComponent implements OnInit {
     .then(
       (stocks) => { 
         this.stocks = stocks 
-        for(let res of this.stocks) {
-          this.rsCallSP = res.rs[0]
-          this.rsPutSP = res.rs[1]
+        for(let i = this.stocks.length-7; i < this.stocks.length; i++) {
+          this.rsCallSP = this.stocks[i].rs[0]
+          this.rsPutSP = this.stocks[i].rs[1]
           this.resultCallArray.push(this.rsCallSP)
           this.resultPutArray.push(this.rsPutSP)
         }     
