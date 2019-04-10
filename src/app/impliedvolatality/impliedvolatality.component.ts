@@ -26,13 +26,13 @@ export class ImpliedvolatalityComponent implements OnInit {
       this.stockService.getData()
       .then(
         (stocks) => { 
-          this.stocks = stocks 
-          for(let res of this.stocks) {
-            this.oiCallValue = res.iv[0]
-            this.oiPutValue = res.iv[1]
+          this.stocks = stocks
+          for(let i = this.stocks.length-7; i < this.stocks.length; i++) {
+            this.oiCallValue = this.stocks[i].iv[0]
+            this.oiPutValue = this.stocks[i].iv[1]
             this.resultCallArray.push(this.oiCallValue)
-            this.resultPutArray.push(this.oiPutValue)
-          }       
+            this.resultPutArray.push(this.oiPutValue)   
+          }      
           this.todayCallIV = this.stocks[this.stocks.length-1].iv[0]
           this.todayPutIV = this.stocks[this.stocks.length-1].iv[1] 
         },
