@@ -79,7 +79,19 @@ export class PremiumdecayComponent implements OnInit {
 
   }
 
-  public barChartOptions: ChartOptions = {
+  public barChartOptions: ChartOptions = {    
+    scales: {
+         xAxes: [{
+          ticks: {
+            padding: 10
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            padding: 10
+          }
+        }]
+      },
     responsive: true,
      plugins: {
         datalabels: {

@@ -94,6 +94,18 @@ export class OpeninterestComponent implements OnInit {
 
     
     public barChartOptions: ChartOptions = {
+          scales: {
+         xAxes: [{
+          ticks: {
+            padding: 10
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            padding: 10
+          }
+        }]
+      },
       responsive: true,
       plugins: {
         datalabels: {
@@ -122,6 +134,18 @@ export class OpeninterestComponent implements OnInit {
 
 
      public barChartOptions1: ChartOptions = {
+           scales: {
+         xAxes: [{
+          ticks: {
+            padding: 10
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            padding: 10
+          }
+        }]
+      },
       responsive: true,
       plugins: {
         datalabels: {

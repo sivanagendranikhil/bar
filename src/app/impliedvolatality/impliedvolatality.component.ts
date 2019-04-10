@@ -45,6 +45,18 @@ export class ImpliedvolatalityComponent implements OnInit {
     }
 
     public barChartOptions: ChartOptions = {
+          scales: {
+         xAxes: [{
+          ticks: {
+            padding: 15
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            padding: 10
+          }
+        }]
+      },
       responsive: true,
       plugins: {
         datalabels: {

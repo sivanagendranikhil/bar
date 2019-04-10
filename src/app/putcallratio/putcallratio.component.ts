@@ -21,10 +21,12 @@ export class PutcallratioComponent implements OnInit {
     finalPredict: string;
     todayPredict: string;
     resultPcrArray:Array<number> = [];
+    public chartOptions: any;
 
     constructor(private stockService: StockService) { }
 
     ngOnInit() {
+    
       this.stockService.getData()
       .then(
         (stocks) => { 
@@ -58,10 +60,23 @@ export class PutcallratioComponent implements OnInit {
           console.log('Error!!!') 
         }
       );
+      
 
     }
-
+  
     public barChartOptions: ChartOptions = {
+      scales: {
+         xAxes: [{
+          ticks: {
+            padding: 10
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            padding: 10
+          }
+        }]
+      },
       responsive: true,
        plugins: {
         datalabels: {

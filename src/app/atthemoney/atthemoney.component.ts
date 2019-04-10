@@ -71,6 +71,18 @@ export class AtthemoneyComponent implements OnInit {
   }
 
   public barChartOptions: ChartOptions = {
+        scales: {
+         xAxes: [{
+          ticks: {
+            padding: 20
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            padding: 10
+          }
+        }]
+      },
     responsive: true,
     plugins: {
         datalabels: {

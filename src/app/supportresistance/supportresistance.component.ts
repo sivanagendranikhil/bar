@@ -46,6 +46,18 @@ export class SupportresistanceComponent implements OnInit {
   }
 
   public barChartOptions: ChartOptions = {
+        scales: {
+         xAxes: [{
+          ticks: {
+            padding: 10
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            padding: 10
+          }
+        }]
+      },
     responsive: true,
     plugins: {
         datalabels: {
