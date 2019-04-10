@@ -33,6 +33,16 @@ export class PremiumdecayComponent implements OnInit {
     .then(
       (stocks) => { 
         this.stocks = stocks 
+        for(let i = this.stocks.length-7; i < this.stocks.length; i++) {
+          this.pdCallValue = this.stocks[i].premiumDecay[0]
+          this.pdPutValue = this.stocks[i].premiumDecay[1]
+          this.resultCallArray.push(this.pdCallValue)
+          this.resultPutArray.push(this.pdPutValue)
+          if(this.stocks[i].premiumDecay[2] == 1)
+            this.count1 = this.count1 + 1
+          if(this.stocks[i].premiumDecay[2] == -1)
+            this.count2 = this.count2 + 1    
+        } 
         for(let res of this.stocks) {
           this.pdCallValue = res.premiumDecay[0]
           this.pdPutValue = res.premiumDecay[1]
