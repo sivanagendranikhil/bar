@@ -13,7 +13,10 @@ export class DefaultComponent implements OnInit {
   putPrediction: string;
   finalPrediction: string;
   strikePrice: Number;
+  change1: Number = 0;
+  change2: Number = 0;
   result: Number[];
+  changeResult: Number[];
   stocks: MyData[];
   message: string;
   atmTodayPredict: string;
@@ -21,7 +24,7 @@ export class DefaultComponent implements OnInit {
   pdTodayPredict: string;
   pcrTodayPredict: string;
   show1:boolean=false;
-   show2:boolean=false;
+  show2:boolean=false;
 
   constructor(private stockService: StockService) { }
 
@@ -60,50 +63,63 @@ export class DefaultComponent implements OnInit {
         (resp) => { 
           console.log('Error!!!') 
         }
-      );
-
-      this.stockService.getData()
-    .then(
-      (stocks) => { 
-        this.stocks = stocks 
-        // ATM
-        if(this.stocks[this.stocks.length-1].atm[2] == 1) {
-          this.atmTodayPredict = "Bullish";
-        } else if(this.stocks[this.stocks.length-1].atm[2] == -1) {
-          this.atmTodayPredict = "Bearish";
-        } else {
-          this.atmTodayPredict = "Moving Sideways";
-        }
-        // OI 
-         if(this.stocks[this.stocks.length-1].oi[2]>this.stocks[this.stocks.length-1].oi[3]&&this.stocks[this.stocks.length-1].oi[2] >= 2) {
-          this.oiTodayPredict = "Bullish";
-        } else if(this.stocks[this.stocks.length-1].oi[2] < this.stocks[this.stocks.length-1].oi[3] && this.stocks[this.stocks.length-1].oi[3] >= 2) {
-          this.oiTodayPredict = "Bearish";
-        } else {
-          this.oiTodayPredict = "Moving Sideways";
-        } 
-        // Premium Decay
-        if(this.stocks[this.stocks.length-1].premiumDecay[2] == 1) {
-          this.pdTodayPredict = "Bullish";
-        } else if(this.stocks[this.stocks.length-1].premiumDecay[2] == -1) {
-          this.pdTodayPredict = "Bearish";
-        } else {
-          this.pdTodayPredict = "Moving Sideways";
-        } 
-        // Put Call Ratio
-        if(this.stocks[this.stocks.length-1].pcr[1] == 1) {
-            this.pcrTodayPredict = "Bullish";
-          } else if(this.stocks[this.stocks.length-1].pcr[1] == -1) {
-            this.pcrTodayPredict = "Bearish";
-          } else {
-            this.pcrTodayPredict = "Moving Sideways";
-          } 
-      },
-      (resp) => { 
-        this.message = resp.message;
-        console.log('Error!!!') 
-      }
     );
+
+    this.stockService.getFinalPredictionFromWeb()
+      .then(
+        (resp) => { 
+          this.changeResult = resp
+          // CHANGE 1
+          this.change1 = this.changeResult[0]
+          // CHANGE 2
+          this.change2 = this.changeResult[1]
+        },
+        (resp) => { 
+          console.log('Error!!!') 
+        }
+    );
+    this.stockService.getData()
+      .then(
+        (stocks) => { 
+          this.stocks = stocks 
+          // ATM
+          if(this.stocks[this.stocks.length-1].atm[2] == 1) {
+            this.atmTodayPredict = "Bullish";
+          } else if(this.stocks[this.stocks.length-1].atm[2] == -1) {
+            this.atmTodayPredict = "Bearish";
+          } else {
+            this.atmTodayPredict = "Moving Sideways";
+          }
+          // OI 
+          if(this.stocks[this.stocks.length-1].oi[2]>this.stocks[this.stocks.length-1].oi[3]&&this.stocks[this.stocks.length-1].oi[2] >= 2) {
+            this.oiTodayPredict = "Bullish";
+          } else if(this.stocks[this.stocks.length-1].oi[2] < this.stocks[this.stocks.length-1].oi[3] && this.stocks[this.stocks.length-1].oi[3] >= 2) {
+            this.oiTodayPredict = "Bearish";
+          } else {
+            this.oiTodayPredict = "Moving Sideways";
+          } 
+          // Premium Decay
+          if(this.stocks[this.stocks.length-1].premiumDecay[2] == 1) {
+            this.pdTodayPredict = "Bullish";
+          } else if(this.stocks[this.stocks.length-1].premiumDecay[2] == -1) {
+            this.pdTodayPredict = "Bearish";
+          } else {
+            this.pdTodayPredict = "Moving Sideways";
+          } 
+          // Put Call Ratio
+          if(this.stocks[this.stocks.length-1].pcr[1] == 1) {
+              this.pcrTodayPredict = "Bullish";
+            } else if(this.stocks[this.stocks.length-1].pcr[1] == -1) {
+              this.pcrTodayPredict = "Bearish";
+            } else {
+              this.pcrTodayPredict = "Moving Sideways";
+            } 
+        },
+        (resp) => { 
+          this.message = resp.message;
+          console.log('Error!!!') 
+        }
+      );
   }
 showcall() {
         this.show1 = this.show1 ? false : true;

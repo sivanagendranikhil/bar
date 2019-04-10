@@ -36,6 +36,14 @@ export class StockService {
     .catch(this.errorHandler);
   }
 
+  getFinalPredictionFromWeb(): Promise<Number[]> {
+     return this.http
+    .get('http://localhost:3333/ProjectBackend/StockAPI/getFinalPredictionFromWeb')
+    .toPromise()
+    .then(resp => resp.json() as Number[])
+    .catch(this.errorHandler);
+  }
+
   private errorHandler(error:any): Promise<any> {
     console.log('Error occured',error);
     return Promise.reject(error.message || error);
