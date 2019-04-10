@@ -83,7 +83,10 @@ export class PremiumdecayComponent implements OnInit {
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: this.resultCallArray, fill: false, label: 'Premium Decay Call Values' },
+    { data: this.resultCallArray, fill: false, label: 'Premium Decay Call Values', datalabels: {
+          anchor: 'start',
+          align: 'start'
+        }  },
     { data: this.resultPutArray, fill: false, label: 'Premium Decay Put Values' }
   ];
 

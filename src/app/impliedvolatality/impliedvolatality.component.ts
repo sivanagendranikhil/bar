@@ -58,8 +58,14 @@ export class ImpliedvolatalityComponent implements OnInit {
     public barChartLegend = true;
 
     public barChartData: ChartDataSets[] = [
-      { data: this.resultCallArray, fill: false, label: 'IV Call Values' },
-      { data: this.resultPutArray, fill: false, label: 'IV Put Values' }
+      { data: this.resultCallArray, fill: false, label: 'IV Call Values' , datalabels: {
+          anchor: 'end',
+          align: 'end'
+        } },
+      { data: this.resultPutArray, fill: false, label: 'IV Put Values' , datalabels: {
+          anchor: 'start',
+          align: 'start'
+        } }
     ];
 
     public barChartPlugins = [pluginDataLabels];
