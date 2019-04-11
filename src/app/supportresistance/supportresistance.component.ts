@@ -75,7 +75,7 @@ export class SupportresistanceComponent implements OnInit {
           anchor: 'start',
           align: 'start'
         } },
-    { data: this.resultPutArray, fill: false, label: 'Resist Values', datalabels: {
+    { data: this.resultPutArray, fill: false, label: 'Resistance Values', datalabels: {
           anchor: 'end',
           align: 'end'
         }}
