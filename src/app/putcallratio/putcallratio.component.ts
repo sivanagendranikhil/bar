@@ -49,14 +49,12 @@ export class PutcallratioComponent implements OnInit {
           } else {
             this.finalPredict = "Moving Sideways";
           }
-           if((this.todayPCR>this.stocks[this.stocks.length-2].pcr[0] && this.stocks[this.stocks.length-2].pcr[0]>
-                          this.stocks[this.stocks.length-3].pcr[0]) || this.todayPCR-this.stocks[this.stocks.length-2].pcr[0]>=1 ){
-               this.finalPredict = "Bullish";
-          } else if((this.todayPCR<this.stocks[this.stocks.length-2].pcr[0] && this.stocks[this.stocks.length-2].pcr[0]<
-                          this.stocks[this.stocks.length-3].pcr[0]) || this.todayPCR-this.stocks[this.stocks.length-2].pcr[0]<=-1) {
-            this.finalPredict = "Bearish";
+           if(this.stocks[this.stocks.length-1].pcr[1] == 1) {
+            this.todayPredict = "Bullish";
+          } else if(this.stocks[this.stocks.length-1].pcr[1] == -1) {
+            this.todayPredict = "Bearish";
           } else {
-            this.finalPredict = "Moving Sideways";
+            this.todayPredict = "Moving Sideways";
           }  
         },
         (resp) => { 
