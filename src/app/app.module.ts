@@ -17,10 +17,11 @@ import { SupportresistanceComponent } from './supportresistance/supportresistanc
 import { DefaultComponent } from './default/default.component';
 
 import { AppRoutingModule } from './approuting.module';
+import { FiidiiComponent } from './fiidii/fiidii.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ChartsModule, HttpModule,AppRoutingModule],
-  declarations: [ AppComponent, HelloComponent, PremiumdecayComponent, OpeninterestComponent, ImpliedvolatalityComponent, PutcallratioComponent, VixComponent, AtthemoneyComponent, SupportresistanceComponent, DefaultComponent ],
+  declarations: [ AppComponent, HelloComponent, PremiumdecayComponent, OpeninterestComponent, ImpliedvolatalityComponent, PutcallratioComponent, VixComponent, AtthemoneyComponent, SupportresistanceComponent, DefaultComponent, FiidiiComponent ],
   bootstrap:    [ AppComponent ],
   providers: [StockService]
 })

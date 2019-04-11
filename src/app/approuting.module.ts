@@ -8,6 +8,7 @@ import {OpeninterestComponent} from './openinterest/openinterest.component'
 import {SupportresistanceComponent} from './supportresistance/supportresistance.component'
 import {PremiumdecayComponent} from './premiumdecay/premiumdecay.component'
 import{ DefaultComponent} from './default/default.component'
+import {FiidiiComponent} from './fiidii/fiidii.component'
 
 
 
@@ -50,6 +51,10 @@ const routes: Routes = [
     path: 'premiumdecay',
     component: PremiumdecayComponent,
   },
+  {
+    path: 'fiidii',
+    component: FiidiiComponent,
+  }
 ];
 
 @NgModule({
