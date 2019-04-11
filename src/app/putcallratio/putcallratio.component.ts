@@ -32,27 +32,31 @@ export class PutcallratioComponent implements OnInit {
         (stocks) => { 
           this.stocks = stocks 
           for(let i = this.stocks.length-7; i < this.stocks.length; i++) {
-            this.pcrValue = this.stocks[i].pcr[0]
+              this.pcrValue = this.stocks[i].pcr[0]
             this.resultPcrArray.push(this.pcrValue)
-            if(this.stocks[i].pcr[1] == 1)
+            /*if(this.stocks[i].pcr[1] ==1)
               this.count1 = this.count1 + 1
             if(this.stocks[i].pcr[1] == -1)
               this.count2 = this.count2 + 1   
-          }
+          */}
           this.todayPCR = this.stocks[this.stocks.length-1].pcr[0]
-          if(this.count1 > this.count2 && this.count1 > 3) {
-          this.finalPredict = "Bullish";
-          } else if(this.count1 < this.count2 && this.count2 > 3) {
+          if((this.todayPCR>this.stocks[this.stocks.length-2].pcr[0] && this.stocks[this.stocks.length-2].pcr[0]>
+                          this.stocks[this.stocks.length-3].pcr[0]) || this.todayPCR-this.stocks[this.stocks.length-2].pcr[0]>=1 ){
+               this.finalPredict = "Bullish";
+          } else if((this.todayPCR<this.stocks[this.stocks.length-2].pcr[0] && this.stocks[this.stocks.length-2].pcr[0]<
+                          this.stocks[this.stocks.length-3].pcr[0]) || this.todayPCR-this.stocks[this.stocks.length-2].pcr[0]<=-1) {
             this.finalPredict = "Bearish";
           } else {
             this.finalPredict = "Moving Sideways";
           }
-          if(this.stocks[this.stocks.length-1].pcr[1] == 1) {
-            this.todayPredict = "Bullish";
-          } else if(this.stocks[this.stocks.length-1].pcr[1] == -1) {
-            this.todayPredict = "Bearish";
+           if((this.todayPCR>this.stocks[this.stocks.length-2].pcr[0] && this.stocks[this.stocks.length-2].pcr[0]>
+                          this.stocks[this.stocks.length-3].pcr[0]) || this.todayPCR-this.stocks[this.stocks.length-2].pcr[0]>=1 ){
+               this.finalPredict = "Bullish";
+          } else if((this.todayPCR<this.stocks[this.stocks.length-2].pcr[0] && this.stocks[this.stocks.length-2].pcr[0]<
+                          this.stocks[this.stocks.length-3].pcr[0]) || this.todayPCR-this.stocks[this.stocks.length-2].pcr[0]<=-1) {
+            this.finalPredict = "Bearish";
           } else {
-            this.todayPredict = "Moving Sideways";
+            this.finalPredict = "Moving Sideways";
           }  
         },
         (resp) => { 
@@ -108,7 +112,7 @@ export class PutcallratioComponent implements OnInit {
 
 
 
-
-
     
   }
+
+
