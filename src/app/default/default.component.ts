@@ -19,6 +19,7 @@ export class DefaultComponent implements OnInit {
   changeResult: Number[];
   stocks: MyData[];
   message: string;
+  directPrediction: string;
   atmTodayPredict: string;
   oiTodayPredict: string;
   pdTodayPredict: string;
@@ -73,6 +74,15 @@ export class DefaultComponent implements OnInit {
           this.change1 = this.changeResult[0]
           // CHANGE 2
           this.change2 = this.changeResult[1]
+          // DIRECT PREDICTION
+          if(this.change1 > 0) {
+            this.directPrediction = "Bullish"
+          } else if(this.change1 < 0) {
+            this.directPrediction = "Bearish"
+          } else {
+            this.directPrediction = "Moving Sideways"
+
+          }
         },
         (resp) => { 
           console.log('Error!!!') 
