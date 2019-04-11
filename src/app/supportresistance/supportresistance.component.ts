@@ -20,6 +20,12 @@ export class SupportresistanceComponent implements OnInit {
   todaySupport: number;
   resultCallArray:Array<number> = [];
   resultPutArray:Array<number> = [];
+     //start
+    resultSPArray:Array<string> = [];
+    spValue: number;
+    count: number = 1;
+    day: string;
+    //end
 
   constructor(private stockService: StockService) { }
 
@@ -33,6 +39,12 @@ export class SupportresistanceComponent implements OnInit {
           this.rsPutSP = this.stocks[i].rs[1]
           this.resultCallArray.push(this.rsCallSP)
           this.resultPutArray.push(this.rsPutSP)
+            //start
+            this.spValue = this.stocks[i].sp[0]
+            this.day = ' (Day'+this.count+')';
+            this.resultSPArray.push(this.spValue + this.day) 
+            this.count++;   
+            //end
         }     
         this.todayResistance = this.stocks[this.stocks.length-1].rs[0]
         this.todaySupport = this.stocks[this.stocks.length-1].rs[1]  
@@ -66,7 +78,10 @@ export class SupportresistanceComponent implements OnInit {
         }
       }
   };
-  public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
+    //public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
+    //start
+    public barChartLabels: Label[] = this.resultSPArray;
+    //end
   public barChartType: ChartType = 'line';
   public barChartLegend = true;
 

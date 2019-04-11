@@ -21,6 +21,13 @@ export class PutcallratioComponent implements OnInit {
     finalPredict: string;
     todayPredict: string;
     resultPcrArray:Array<number> = [];
+         //start
+    resultSPArray:Array<string> = [];
+    spValue: number;
+    count: number = 1;
+    day: string;
+    //end
+
     public chartOptions: any;
 
     constructor(private stockService: StockService) { }
@@ -38,7 +45,14 @@ export class PutcallratioComponent implements OnInit {
               this.count1 = this.count1 + 1
             if(this.stocks[i].pcr[1] == -1)
               this.count2 = this.count2 + 1   
-          */}
+          */
+             //start
+            this.spValue = this.stocks[i].sp[0];
+            this.day = ' (Day'+this.count+')';
+            this.resultSPArray.push(this.spValue + this.day) 
+            this.count++;   
+            //end
+            }
           this.todayPCR = this.stocks[this.stocks.length-1].pcr[0]
           if((this.todayPCR>this.stocks[this.stocks.length-2].pcr[0] && this.stocks[this.stocks.length-2].pcr[0]>
                           this.stocks[this.stocks.length-3].pcr[0]) || this.todayPCR-this.stocks[this.stocks.length-2].pcr[0]>=1 ){
@@ -88,7 +102,10 @@ export class PutcallratioComponent implements OnInit {
         }
       }
     };
-    public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
+    //public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
+    //start
+    public barChartLabels: Label[] = this.resultSPArray;
+    //end
     public barChartType: ChartType = 'line';
     public barChartLegend = true;
 

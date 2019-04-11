@@ -33,6 +33,10 @@ export class OpeninterestComponent implements OnInit {
     resultOIStrikePriceArray:Array<number> = [];
     resultCallOIChangeArray:Array<number> = [];
     resultPutOIChangeArray:Array<number> = [];
+           resultSPArray:Array<string> = [];
+    spValue: number;
+    count: number = 1;
+    day: string;
 
     constructor(private stockService: StockService) { }
 
@@ -46,6 +50,12 @@ export class OpeninterestComponent implements OnInit {
             this.oiPutValue = this.stocks[i].oi[1]
             this.resultCallArray.push(this.oiCallValue)
             this.resultPutArray.push(this.oiPutValue)   
+                   //start
+            this.spValue = this.stocks[i].sp[0];
+            this.day = ' (Day'+this.count+')';
+            this.resultSPArray.push(this.spValue + this.day) 
+            this.count++;   
+            //end
             this.count1 = this.stocks[i].oi[2]
             this.count2 = this.stocks[i].oi[3] 
           }
@@ -114,7 +124,10 @@ export class OpeninterestComponent implements OnInit {
         }
       }
     };
-    public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
+    //public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
+    //start
+    public barChartLabels: Label[] = this.resultSPArray;
+    //end
     public barChartType: ChartType = 'bar';
     public barChartLegend = true;
 

@@ -25,6 +25,10 @@ export class PremiumdecayComponent implements OnInit {
   todayPredict: string;
   resultCallArray:Array<number> = [];
   resultPutArray:Array<number> = [];
+        resultSPArray:Array<string> = [];
+    spValue: number;
+    count: number = 1;
+    day: string;
 
   constructor(private stockService: StockService) { }
 
@@ -38,6 +42,12 @@ export class PremiumdecayComponent implements OnInit {
           this.pdPutValue = this.stocks[i].premiumDecay[1]
           this.resultCallArray.push(this.pdCallValue)
           this.resultPutArray.push(this.pdPutValue)
+            //start
+            this.spValue = this.stocks[i].sp[0];
+            this.day = ' (Day'+this.count+')';
+            this.resultSPArray.push(this.spValue + this.day) 
+            this.count++;   
+            //end
           if(this.stocks[i].premiumDecay[2] == 1)
             this.count1 = this.count1 + 1
           if(this.stocks[i].premiumDecay[2] == -1)
@@ -100,7 +110,10 @@ export class PremiumdecayComponent implements OnInit {
         }
       }
   };
-  public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
+    //public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
+    //start
+    public barChartLabels: Label[] = this.resultSPArray;
+    //end
   public barChartType: ChartType = 'line';
   public barChartLegend = true;
 

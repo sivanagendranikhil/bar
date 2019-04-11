@@ -35,6 +35,7 @@ export class FiidiiComponent implements OnInit {
   resultFiiArray:Array<Number> = [];
   resultDiiArray:Array<Number> = [];
   resultDateArray: Array<string> = [];
+  
 
   constructor(private stockService: StockService) { }
 
