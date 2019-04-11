@@ -18,8 +18,10 @@ export class FiidiiComponent implements OnInit {
   fiidii: FiiDiiData[];
   fii: Number;
   dii: Number;
+  date: string;
   todayFii: Number;
   todayDii: Number;
+  todayDate: string;
   fiiDiiDiff: Number;
   message: string;
   atmCallValue: number;
@@ -32,6 +34,7 @@ export class FiidiiComponent implements OnInit {
   count2: number = 0;
   resultFiiArray:Array<Number> = [];
   resultDiiArray:Array<Number> = [];
+  resultDateArray: Array<string> = [];
 
   constructor(private stockService: StockService) { }
 
@@ -43,8 +46,10 @@ export class FiidiiComponent implements OnInit {
         for(let res of this.fiidii) {
           this.fii = res.fii
           this.dii = res.dii
+          this.date = res.date
           this.resultFiiArray.push(this.fii)         
-          this.resultDiiArray.push(this.dii)    
+          this.resultDiiArray.push(this.dii)   
+          this.resultDateArray.push(this.date) 
         }
         // for(let i = this.fiidii.length-7; i < this.fiidii.length; i++) {
         //   this.atmCallValue = this.fiidii[i].atm[0]
@@ -61,9 +66,9 @@ export class FiidiiComponent implements OnInit {
         //   } else {
         //     this.finalPredict = "Moving Sideways";
         //   }
-
         this.todayDii = this.fiidii[this.fiidii.length-1].dii;
         this.todayFii = this.fiidii[this.fiidii.length-1].fii;
+        this.todayDate = this.fiidii[this.fiidii.length-1].date;
         if(this.todayDii > 0 && this.todayFii > 0) {
           this.todayPredict = "Bullish";
         } else if(this.todayDii < 0 && this.todayFii < 0) {
@@ -106,7 +111,7 @@ export class FiidiiComponent implements OnInit {
         }
       }
   };
-  public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
+  public barChartLabels: Label[] = ['Day , 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
   public barChartType: ChartType = 'line';
   public barChartLegend = true;
 
