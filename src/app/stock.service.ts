@@ -4,6 +4,7 @@ import 'rxjs/add/operator/toPromise';
 import { Headers } from '@angular/http';
 import { MyData } from './premiumdecay/my-data';
 import { OITodayData } from './openinterest/today-data';
+import { FiiDiiData } from './fiidii/fii-dii';
 
 @Injectable()
 export class StockService {
@@ -25,6 +26,14 @@ export class StockService {
       .get('http://localhost:3333/ProjectBackend/StockAPI/getOIDataFromDB')
       .toPromise()
       .then(resp => resp.json() as OITodayData[])
+      .catch(this.errorHandler);
+  }
+
+  getFiiDiiData(): Promise<FiiDiiData[]> {
+    return this.http
+      .get('http://localhost:3333/ProjectBackend/StockAPI/getFiiDiiData')
+      .toPromise()
+      .then(resp => resp.json() as FiiDiiData[])
       .catch(this.errorHandler);
   }
 

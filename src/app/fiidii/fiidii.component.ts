@@ -1,10 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
-  import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label, Color } from 'ng2-charts';
 import { StockService } from '../stock.service';
 import { MyData } from './my-data';
+  import { FiiDiiData } from './fii-dii';
 
 @Component({
   selector: 'app-fiidii',
@@ -14,6 +15,12 @@ import { MyData } from './my-data';
 export class FiidiiComponent implements OnInit {
 
   stocks: MyData[];
+  fiidii: FiiDiiData[];
+  fii: Number;
+  dii: Number;
+  todayFii: Number;
+  todayDii: Number;
+  fiiDiiDiff: Number;
   message: string;
   atmCallValue: number;
   atmPutValue: number;
@@ -23,44 +30,51 @@ export class FiidiiComponent implements OnInit {
   todayPredict: string;
   count1: number = 0;
   count2: number = 0;
-  resultCallArray:Array<number> = [];
-  resultPutArray:Array<number> = [];
+  resultFiiArray:Array<Number> = [];
+  resultDiiArray:Array<Number> = [];
 
   constructor(private stockService: StockService) { }
 
   ngOnInit() {
-    this.stockService.getData()
+    this.stockService.getFiiDiiData()
     .then(
-      (stocks) => { 
-        this.stocks = stocks 
-        for(let i = this.stocks.length-7; i < this.stocks.length; i++) {
-          this.atmCallValue = this.stocks[i].atm[0]
-          this.atmPutValue = this.stocks[i].atm[1]
-          this.resultCallArray.push(this.atmCallValue)         
-          this.resultPutArray.push(this.atmPutValue)    
-          if(this.stocks[i].atm[2] == 1) {
-            this.count1 = this.count1 + 1
-          }
-          if(this.stocks[i].atm[2] == -1) {
-            this.count2 = this.count2 + 1 
-          }       
+      (resp) => { 
+        this.fiidii = resp 
+        for(let res of this.fiidii) {
+          this.fii = res.fii
+          this.dii = res.dii
+          this.resultFiiArray.push(this.fii)         
+          this.resultDiiArray.push(this.dii)    
         }
-        this.todayCallATM = this.stocks[this.stocks.length-1].atm[0]
-        this.todayPutATM = this.stocks[this.stocks.length-1].atm[1]
-        if(this.count1 > this.count2 && this.count1 > 3) {
-          this.finalPredict = "Bullish";
-          } else if(this.count1 < this.count2 && this.count2 > 3) {
-            this.finalPredict = "Bearish";
-          } else {
-            this.finalPredict = "Moving Sideways";
-          }
+        // for(let i = this.fiidii.length-7; i < this.fiidii.length; i++) {
+        //   this.atmCallValue = this.fiidii[i].atm[0]
+        //   this.atmPutValue = this.fiidii[i].atm[1]
+        //   this.resultCallArray.push(this.atmCallValue)         
+        //   this.resultPutArray.push(this.atmPutValue)       
+        // }
+        // this.todayCallATM = this.stocks[this.stocks.length-1].atm[0]
+        // this.todayPutATM = this.stocks[this.stocks.length-1].atm[1]
+        // if(this.count1 > this.count2 && this.count1 > 3) {
+        //   this.finalPredict = "Bullish";
+        //   } else if(this.count1 < this.count2 && this.count2 > 3) {
+        //     this.finalPredict = "Bearish";
+        //   } else {
+        //     this.finalPredict = "Moving Sideways";
+        //   }
 
-        if(this.stocks[this.stocks.length-1].atm[2] == 1) {
+        this.todayDii = this.fiidii[this.fiidii.length-1].dii;
+        this.todayFii = this.fiidii[this.fiidii.length-1].fii;
+        if(this.todayDii > 0 && this.todayFii > 0) {
           this.todayPredict = "Bullish";
-        } else if(this.stocks[this.stocks.length-1].atm[2] == -1) {
+        } else if(this.todayDii < 0 && this.todayFii < 0) {
           this.todayPredict = "Bearish";
         } else {
-          this.todayPredict = "Moving Sideways";
+        	this.fiiDiiDiff = this.fiidii[this.fiidii.length-1].dii - this.fiidii[this.fiidii.length-1].fii;
+          if(this.fiiDiiDiff > 0) {
+            this.todayPredict = "Slightly Bullish";
+          } else {
+          	this.todayPredict = "Slightly Bearish";
+          }
         }
       },
       (resp) => { 
@@ -97,11 +111,11 @@ export class FiidiiComponent implements OnInit {
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: this.resultCallArray, fill: false, label: 'ATM Call Values', datalabels: {
+    { data: this.resultFiiArray, fill: false, label: 'Fii Diff Values', datalabels: {
           anchor: 'end',
           align: 'end'
         }  },
-    { data: this.resultPutArray, fill: false, label: 'ATM Put Values'
+    { data: this.resultDiiArray, fill: false, label: 'Dii Diff Values'
     , datalabels: {
           anchor: 'start',
           align: 'start'
