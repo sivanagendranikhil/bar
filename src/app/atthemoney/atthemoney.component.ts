@@ -111,11 +111,11 @@ export class AtthemoneyComponent implements OnInit {
 
   public barChartColors: Color[] = [
     {
-      borderColor: 'red',
+      borderColor: 'green',
       pointBorderColor: '#ffffff'
     },
     { 
-      borderColor: 'green',
+      borderColor: 'red',
       pointBorderColor: '#fff'
     }
   ]

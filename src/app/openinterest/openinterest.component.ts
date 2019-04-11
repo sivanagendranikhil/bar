@@ -127,8 +127,8 @@ export class OpeninterestComponent implements OnInit {
 
 
     public barChartColors: Color[] = [
-      { backgroundColor: 'red' },
       { backgroundColor: 'green' },
+      { backgroundColor: 'red' },
     ]
 
 
@@ -164,8 +164,8 @@ export class OpeninterestComponent implements OnInit {
     ];
 
     public barChartColors1: Color[] = [
-      { backgroundColor: 'red' },
       { backgroundColor: 'green' },
+      { backgroundColor: 'red' },
     ]
     
   }

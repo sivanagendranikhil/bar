@@ -85,11 +85,11 @@ export class SupportresistanceComponent implements OnInit {
 
   public barChartColors: Color[] = [
     {
-      borderColor: 'red',
+      borderColor: 'green',
       pointBorderColor: '#ffffff'
     },
     { 
-      borderColor: 'green',
+      borderColor: 'r',
       pointBorderColor: '#fff'
     }
   ]
