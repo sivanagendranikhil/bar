@@ -16,12 +16,16 @@ export class VixComponent implements OnInit {
     stocks: MyData[];
     message: string;
     vixValue: number;
+    spValue: number;
     todayVIX: number;
+    count: number = 1;
     count1: number = 0;
     count2: number = 0;
     finalPredict: string;
     todayPredict: string;
+    day: string;
     resultCallArray:Array<number> = [];
+    resultSPArray:Array<string> = [];
 
     constructor(private stockService: StockService) { }
 
@@ -32,7 +36,11 @@ export class VixComponent implements OnInit {
           this.stocks = stocks 
           for(let i = this.stocks.length-7; i < this.stocks.length; i++) {
             this.vixValue = this.stocks[i].vix[0]
-            this.resultCallArray.push(this.vixValue)     
+            this.spValue = this.stocks[i].sp[0]
+            this.day = ' (Day'+this.count+')';
+            this.resultCallArray.push(this.vixValue) 
+            this.resultSPArray.push(this.spValue + this.day) 
+            this.count++;   
           if(this.stocks[i].vix[1] == 1)
             this.count1 = this.count1 + 1
           if(this.stocks[i].vix[1] == -1)
@@ -85,6 +93,7 @@ export class VixComponent implements OnInit {
       }
     };
     public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
+    public barChartLabels1: Label[] = this.resultSPArray;
     public barChartType: ChartType = 'line';
     public barChartLegend = true;
 

@@ -121,7 +121,7 @@ export class PremiumdecayComponent implements OnInit {
     },
     { 
       borderColor: 'red',
-      pointBorderColor: '#fff'
+      pointBorderColor: '#ffffff'
     }
   ]
   

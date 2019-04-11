@@ -111,7 +111,7 @@ export class FiidiiComponent implements OnInit {
         }
       }
   };
-  public barChartLabels: Label[] = ['Day , 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
+  public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
   public barChartType: ChartType = 'line';
   public barChartLegend = true;
 

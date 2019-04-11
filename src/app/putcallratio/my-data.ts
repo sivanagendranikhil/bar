@@ -6,4 +6,5 @@ export class MyData {
   rs: number[];
   premiumDecay: number[];
   iv: number[];
+  sp: number[];
 }

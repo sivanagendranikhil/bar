@@ -5,5 +5,6 @@ export class MyData {
   oi: number[];
   rs: number[];
   premiumDecay: number[];
+  sp: number[];
   iv: number[];
 }
