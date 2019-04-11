@@ -71,11 +71,11 @@ export class SupportresistanceComponent implements OnInit {
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: this.resultCallArray, fill: false, label: 'Resistance Values', datalabels: {
+    { data: this.resultCallArray, fill: false, label: 'Support Values', datalabels: {
           anchor: 'start',
           align: 'start'
         } },
-    { data: this.resultPutArray, fill: false, label: 'Support Values', datalabels: {
+    { data: this.resultPutArray, fill: false, label: 'Resist Values', datalabels: {
           anchor: 'end',
           align: 'end'
         }}
@@ -89,7 +89,7 @@ export class SupportresistanceComponent implements OnInit {
       pointBorderColor: '#ffffff'
     },
     { 
-      borderColor: 'r',
+      borderColor: 'red',
       pointBorderColor: '#fff'
     }
   ]
