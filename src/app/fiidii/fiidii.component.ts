@@ -52,6 +52,10 @@ export class FiidiiComponent implements OnInit {
           this.resultDiiArray.push(this.dii)   
           this.resultDateArray.push(this.date) 
         }
+        this.resultDateArray.push('April13') 
+        this.resultDateArray.push('April14') 
+        this.resultDateArray.push('April15') 
+        this.resultDateArray.push('April16') 
         // for(let i = this.fiidii.length-7; i < this.fiidii.length; i++) {
         //   this.atmCallValue = this.fiidii[i].atm[0]
         //   this.atmPutValue = this.fiidii[i].atm[1]
@@ -111,8 +115,9 @@ export class FiidiiComponent implements OnInit {
           align: 'end',
         }
       }
-  };
-  public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
+   };
+  // public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
+  public barChartLabels: Label[] = this.resultDateArray;
   public barChartType: ChartType = 'line';
   public barChartLegend = true;
 
