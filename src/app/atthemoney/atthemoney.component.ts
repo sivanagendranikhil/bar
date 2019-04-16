@@ -110,13 +110,13 @@ export class AtthemoneyComponent implements OnInit {
 
   public barChartData: ChartDataSets[] = [
     { data: this.resultCallArray, fill: false, label: 'ATM Call Values', datalabels: {
-          anchor: 'end',
-          align: 'end'
+          anchor: 'start',
+          align: 'start'
         }  },
     { data: this.resultPutArray, fill: false, label: 'ATM Put Values'
     , datalabels: {
-          anchor: 'start',
-          align: 'start'
+          anchor: 'end',
+          align: 'end'
         }  }
   ];
 

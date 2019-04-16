@@ -105,8 +105,8 @@ export class PremiumdecayComponent implements OnInit {
     responsive: true,
      plugins: {
         datalabels: {
-          anchor: 'end',
-          align: 'end',
+          anchor: 'start',
+          align: 'start',
         }
       }
   };
@@ -119,8 +119,8 @@ export class PremiumdecayComponent implements OnInit {
 
   public barChartData: ChartDataSets[] = [
     { data: this.resultCallArray, fill: false, label: 'Premium Decay Call Values', datalabels: {
-          anchor: 'start',
-          align: 'start'
+          anchor: 'end',
+          align: 'end'
         }  },
     { data: this.resultPutArray, fill: false, label: 'Premium Decay Put Values' }
   ];
