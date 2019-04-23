@@ -131,6 +131,14 @@ export class DefaultComponent implements OnInit {
           console.log('Error!!!') 
         }
       );
+        this.finalPrediction="Bullish"
+        this.pcrTodayPredict="Bullish"
+        this.atmTodayPredict="Moving Sideways"
+        this.pdTodayPredict="Bullish"
+        this.oiTodayPredict="Bullish"
+        this.callPrediction="Bullish"
+        this.putPrediction="Bullish"
+        this.strikePrice=11600
   }
 showcall() {
         this.show1 = this.show1 ? false : true;
