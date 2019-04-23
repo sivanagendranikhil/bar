@@ -22,13 +22,11 @@ export class VixComponent implements OnInit {
     finalPredict: string;
     todayPredict: string;    
     resultCallArray:Array<number> = [];
-    //start
     resultSPArray:Array<string> = [];
     spValue: number;
     count: number = 1;
     day: string;
-    //end
-
+    
     constructor(private stockService: StockService) { }
 
     ngOnInit() {
@@ -39,12 +37,10 @@ export class VixComponent implements OnInit {
           for(let i = this.stocks.length-7; i < this.stocks.length; i++) {
             this.vixValue = this.stocks[i].vix[0]
             this.resultCallArray.push(this.vixValue) 
-            //start
             this.spValue = this.stocks[i].sp[0]
             this.day = ' (Day'+this.count+')';
             this.resultSPArray.push(this.spValue + this.day) 
             this.count++;   
-            //end
           if(this.stocks[i].vix[1] == 1)
             this.count1 = this.count1 + 1
           if(this.stocks[i].vix[1] == -1)
@@ -73,6 +69,8 @@ export class VixComponent implements OnInit {
         }
       );
 
+      this.todayVIX = 21.38
+
     }
 
     public barChartOptions: ChartOptions = {
@@ -96,15 +94,13 @@ export class VixComponent implements OnInit {
         }
       }
     };
-    //public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
-    //start
-    public barChartLabels1: Label[] = this.resultSPArray;
-    //end
+    public barChartLabels1: Label[] = ['11700(Day 1)', '11600(Day 2)', '11600(Day 3)', '11700(Day 4)', '11600(Day 5)', '11700(Day 6)', '11600(Day 7)'];
+    //public barChartLabels1: Label[] = this.resultSPArray;
     public barChartType: ChartType = 'line';
     public barChartLegend = true;
 
     public barChartData: ChartDataSets[] = [
-      { data: this.resultCallArray, fill: false, label: 'VIX Parameter'},
+      { data: [18.47, 20.43, 20.32, 21.09, 20.95, 20.99, 21.38], fill: false, label: 'VIX Parameter'},
        
     
     ];

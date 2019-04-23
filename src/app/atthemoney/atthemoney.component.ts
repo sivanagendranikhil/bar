@@ -78,6 +78,12 @@ export class AtthemoneyComponent implements OnInit {
       }
     );
 
+    // STATIC DATA
+
+    this.todayPredict = "Bullish"
+    this.todayCallATM = 44.40
+    this.todayPutATM = 41.05
+
   }
 
   public barChartOptions: ChartOptions = {
@@ -101,19 +107,19 @@ export class AtthemoneyComponent implements OnInit {
         }
       }
   };
- //public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
-    //start
-    public barChartLabels: Label[] = this.resultSPArray;
-    //end
+ public barChartLabels: Label[] = ['11700(Day 1)', '11600(Day 2)', '11600(Day 3)', '11700(Day 4)', '11600(Day 5)', '11700(Day 6)', '11600(Day 7)'];
+  //public barChartLabels: Label[] = this.resultSPArray;
   public barChartType: ChartType = 'line';
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: this.resultCallArray, fill: false, label: 'ATM Call Values', datalabels: {
+    // data: this.resultCallArray
+    // data: this.resultPutArray
+    { data: [97.00, 117.00, 48.05, 31.60, 2.90, 90.20, 44.40], fill: false, label: 'ATM Call Values', datalabels: {
           anchor: 'start',
           align: 'start'
         }  },
-    { data: this.resultPutArray, fill: false, label: 'ATM Put Values'
+    { data: [38.20, 27.35, 51.10, 28.95, 17.85, 36.20, 41.05], fill: false, label: 'ATM Put Values'
     , datalabels: {
           anchor: 'end',
           align: 'end'

@@ -79,7 +79,7 @@ export class FiidiiComponent implements OnInit {
         } else if(this.todayDii < 0 && this.todayFii < 0) {
           this.todayPredict = "Bearish";
         } else {
-        	this.fiiDiiDiff = this.fiidii[this.fiidii.length-1].dii - this.fiidii[this.fiidii.length-1].fii;
+        	this.fiiDiiDiff = this.fiidii[this.fiidii.length-1].dii + this.fiidii[this.fiidii.length-1].fii;
           if(this.fiiDiiDiff > 0) {
             this.todayPredict = "Slightly Bullish";
           } else {
@@ -92,6 +92,12 @@ export class FiidiiComponent implements OnInit {
         console.log('Error!!!') 
       }
     );
+
+    // STATIC DATA
+
+    this.todayPredict = "Slightly Bullish"
+    this.todayDii = -791569
+    this.todayFii = 616786
 
   }
 
@@ -116,17 +122,19 @@ export class FiidiiComponent implements OnInit {
         }
       }
    };
-  // public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
-  public barChartLabels: Label[] = this.resultDateArray;
+  public barChartLabels: Label[] = ['April 17', 'April 18', 'April 19', 'April 20', 'April 23', 'April 24', 'April 25'];
+  //public barChartLabels: Label[] = this.resultDateArray;
   public barChartType: ChartType = 'line';
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: this.resultFiiArray, fill: false, label: 'Fii Diff Values', datalabels: {
+    // data: resultFiiArray
+    // data: resultDiiArray
+    { data: [695952, 617642, 616786, 656364, 627561], fill: false, label: 'Fii Diff Values', datalabels: {
           anchor: 'end',
           align: 'end'
         }  },
-    { data: this.resultDiiArray, fill: false, label: 'Dii Diff Values'
+    { data: [-789722, -790037, -791569, -772596, -783295], fill: false, label: 'Dii Diff Values'
     , datalabels: {
           anchor: 'start',
           align: 'start'

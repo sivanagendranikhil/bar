@@ -100,6 +100,9 @@ export class OpeninterestComponent implements OnInit {
           console.log('Error!!!') 
         }
       );
+      this.todayPredict = "Bullish"
+      this.todayCallOIChngATM = 365400
+      this.todayPutOIChngATM = 562425
     }
 
     
@@ -124,18 +127,16 @@ export class OpeninterestComponent implements OnInit {
         }
       }
     };
-    //public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
-    //start
-    public barChartLabels: Label[] = this.resultSPArray;
-    //end
+    public barChartLabels: Label[] = ['11700(Day 1)', '11600(Day 2)', '11600(Day 3)', '11700(Day 4)', '11600(Day 5)', '11700(Day 6)', '11600(Day 7)'];
+    //public barChartLabels: Label[] = this.resultSPArray;
     public barChartType: ChartType = 'bar';
     public barChartLegend = true;
 
     public barChartPlugins = [pluginDataLabels];
 
     public barChartData: ChartDataSets[] = [
-      { data: this.resultCallArray, label: 'OI Call Values' },
-      { data: this.resultPutArray, label: 'OI Put Values' }
+      { data: [109875, 18750, 253725, 530175, 3054975, 46725, 365400], label: 'OI Call Values' },
+      { data: [405300, 135525, 151875, -513750, 56700, 884925, 562425], label: 'OI Put Values' }
     ];
 
 
@@ -167,13 +168,15 @@ export class OpeninterestComponent implements OnInit {
         }
       }
     };
-    public barChartLabels1: number[] = this.resultOIStrikePriceArray;
+    public barChartLabels1: number[] = [11450, 11500, 11550, 11600, 11650, 11700] //this.resultOIStrikePriceArray;
     public barChartType1: ChartType = 'bar';
     public barChartLegend1= true;
 
     public barChartData1: ChartDataSets[] = [
-      { data: this.resultCallOIChangeArray, barChartLabels: this.resultCallOIChangeArray, label: 'OI Call Values' },
-      { data: this.resultPutOIChangeArray, label: 'OI Put Values' }
+      // data: this.resultCallOIChangeArray
+      // data: this.resultPutOIChangeArray
+      { data: [1800, 56925, 31350, 344325, 439875, 1382100, -183675], barChartLabels: this.resultCallOIChangeArray, label: 'OI Call Values' },
+      { data: [37950, 625950, 324525, 1091550, 288000, 112425, -17475], label: 'OI Put Values' }
     ];
 
     public barChartColors1: Color[] = [

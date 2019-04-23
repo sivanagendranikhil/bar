@@ -52,6 +52,11 @@ export class ImpliedvolatalityComponent implements OnInit {
         }
       );
 
+      // STATIC DATA
+
+      this.todayCallIV = 10.86
+      this.todayPutIV = 9.42
+
     }
 
     public barChartOptions: ChartOptions = {
@@ -75,19 +80,19 @@ export class ImpliedvolatalityComponent implements OnInit {
         }
       }
     };
- //public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
-    //start
-    public barChartLabels: Label[] = this.resultSPArray;
-    //end
+    public barChartLabels: Label[] = ['11700(Day 1)', '11600(Day 2)', '11600(Day 3)', '11700(Day 4)', '11600(Day 5)', '11700(Day 6)', '11600(Day 7)'];
+    //public barChartLabels: Label[] = this.resultSPArray;
     public barChartType: ChartType = 'line';
     public barChartLegend = true;
 
     public barChartData: ChartDataSets[] = [
-      { data: this.resultCallArray, fill: false, label: 'IV Call Values' , datalabels: {
+      // data: this.resultCallArray
+      // data: this.resultPutArray
+      { data: [11.47, 15.35, 16.68, 16.29, 0.00, 10.61, 10.86], fill: false, label: 'IV Call Values' , datalabels: {
           anchor: 'end',
           align: 'end'
         } },
-      { data: this.resultPutArray, fill: false, label: 'IV Put Values' , datalabels: {
+      { data: [10.20, 14.73, 13.01, 8.95, 0.00, 9.77, 9.42], fill: false, label: 'IV Put Values' , datalabels: {
           anchor: 'start',
           align: 'start'
         } }

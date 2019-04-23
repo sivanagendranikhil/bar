@@ -77,6 +77,8 @@ export class PutcallratioComponent implements OnInit {
         }
       );
       
+      this.todayPredict = "Bullish"
+      this.todayPCR = 1.08
 
     }
   
@@ -102,15 +104,13 @@ export class PutcallratioComponent implements OnInit {
         }
       }
     };
-    //public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
-    //start
-    public barChartLabels: Label[] = this.resultSPArray;
-    //end
+    public barChartLabels: Label[] = ['11700(Day 1)', '11600(Day 2)', '11600(Day 3)', '11700(Day 4)', '11600(Day 5)', '11700(Day 6)', '11600(Day 7)'];
+    //public barChartLabels: Label[] = this.resultSPArray;
     public barChartType: ChartType = 'line';
     public barChartLegend = true;
 
     public barChartData: ChartDataSets[] = [
-      { data: this.resultPcrArray, fill: false, label: 'Put-Call Ratio' },
+      { data: [1.17, 0.85, 0.76, 0.71, 0.59, 1.00, 1.08], fill: false, label: 'Put-Call Ratio' },
     
     ];
 

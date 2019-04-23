@@ -87,6 +87,10 @@ export class PremiumdecayComponent implements OnInit {
       }
     );
 
+    this.todayPredict = "Bullish"
+    this.callDecayAvg = -6.90
+    this.putDecayAvg = -7.15
+
   }
 
   public barChartOptions: ChartOptions = {    
@@ -110,19 +114,17 @@ export class PremiumdecayComponent implements OnInit {
         }
       }
   };
-    //public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
-    //start
-    public barChartLabels: Label[] = this.resultSPArray;
-    //end
+  public barChartLabels: Label[] = ['11700(Day 1)', '11600(Day 2)', '11600(Day 3)', '11700(Day 4)', '11600(Day 5)', '11700(Day 6)', '11600(Day 7)'];
+  // public barChartLabels: Label[] = this.resultSPArray;
   public barChartType: ChartType = 'line';
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: this.resultCallArray, fill: false, label: 'Premium Decay Call Values', datalabels: {
+    { data: [-0.03, 0.20, 0.26, 1.88, -0.08, -11.82, -6.90], fill: false, label: 'Premium Decay Call Values', datalabels: {
           anchor: 'end',
           align: 'end'
         }  },
-    { data: this.resultPutArray, fill: false, label: 'Premium Decay Put Values' }
+    { data: [14.21, -6.55, 4.00, -2.75, -0.60, -6.62, -7.15], fill: false, label: 'Premium Decay Put Values' }
   ];
 
   public barChartPlugins = [pluginDataLabels];

@@ -20,13 +20,11 @@ export class SupportresistanceComponent implements OnInit {
   todaySupport: number;
   resultCallArray:Array<number> = [];
   resultPutArray:Array<number> = [];
-     //start
     resultSPArray:Array<string> = [];
     spValue: number;
     count: number = 1;
     day: string;
-    //end
-
+    
   constructor(private stockService: StockService) { }
 
   ngOnInit() {
@@ -39,12 +37,10 @@ export class SupportresistanceComponent implements OnInit {
           this.rsPutSP = this.stocks[i].rs[1]
           this.resultCallArray.push(this.rsCallSP)
           this.resultPutArray.push(this.rsPutSP)
-            //start
             this.spValue = this.stocks[i].sp[0]
             this.day = ' (Day'+this.count+')';
             this.resultSPArray.push(this.spValue + this.day) 
             this.count++;   
-            //end
         }     
         this.todayResistance = this.stocks[this.stocks.length-1].rs[0]
         this.todaySupport = this.stocks[this.stocks.length-1].rs[1]  
@@ -54,6 +50,9 @@ export class SupportresistanceComponent implements OnInit {
         console.log('Error!!!') 
       }
     );
+
+    this.todayResistance = 11800
+    this.todaySupport = 11600
 
   }
 
@@ -78,19 +77,17 @@ export class SupportresistanceComponent implements OnInit {
         }
       }
   };
-    //public barChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
-    //start
-    public barChartLabels: Label[] = this.resultSPArray;
-    //end
-  public barChartType: ChartType = 'line';
+    public barChartLabels: Label[] = ['11700(Day 1)', '11600(Day 2)', '11600(Day 3)', '11700(Day 4)', '11600(Day 5)', '11700(Day 6)', '11600(Day 7)'];
+    //public barChartLabels: Label[] = this.resultSPArray;
+    public barChartType: ChartType = 'line';
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: this.resultCallArray, fill: false, label: 'Support Values', datalabels: {
+    { data: [11700, 11700, 11700, 11700, 11700, 11700, 11800], fill: false, label: 'Support Values', datalabels: {
           anchor: 'start',
           align: 'start'
         } },
-    { data: this.resultPutArray, fill: false, label: 'Resistance Values', datalabels: {
+    { data: [11500, 11500, 11500, 11500, 11500, 11600, 11600], fill: false, label: 'Resistance Values', datalabels: {
           anchor: 'end',
           align: 'end'
         }}
